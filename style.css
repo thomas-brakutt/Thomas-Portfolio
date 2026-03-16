@@ -33,7 +33,16 @@ img {
   height: auto;
 }
 
-/* Styling für den Header */
+/* CSS-Variablen für wiederverwendbare Button-Stile */
+:root {
+  --button-padding: 12px 24px;
+  --button-font-size: 15px;
+  --button-border-radius: 10px;
+  --button-bg-color: #cccccc;
+  --button-color: #333; /* Textfarbe, falls nötig */
+}
+
+/* ---------------    Styling für den Header    --------------- */
 header {
   background-color: #0f3754;
   padding: 20px;
@@ -44,6 +53,10 @@ header {
 
 header h1 {
   color: white;
+  margin-left: 3rem;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-underline-offset: 4px;
 }
 
 header nav ul {
@@ -56,25 +69,84 @@ header nav ul li a {
   text-decoration: underline;
   text-decoration-color: white;
   text-underline-offset: 4px;
+  transition: all 0.2s ease;
 }
 
-/* Styling für den Hauptinhalt */
+header nav ul li a:hover {
+  color: #e0e0e0;
+  text-decoration-thickness: 2px;
+}
+
+header nav ul li a:active {
+  text-decoration-thickness: 3px;
+  color: #cccccc;
+}
+
+/* ---------------    Styling für den Hauptinhalt    ---------------  */
 main {
-  background-color: black;
+  background: linear-gradient(to bottom, #0f3754 0%, black 50%, #010a12 90%);
+  color: white; /* Textfarbe für weißen Text auf weißem Hintergrund */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh; /* Optional, um die Höhe zu setzen */
 }
 
-/* Styling für den Footer */
+main section {
+  flex-shrink: 0;
+}
+
+main figure {
+  flex-shrink: 0;
+}
+
+main figure img {
+  border-radius: 180px;
+  border-color: rgba(60, 84, 101, 0.68);
+  border-width: 3px;
+  border-style: solid;
+  box-shadow:
+    0 0 75px rgba(140, 175, 200, 0.526),
+    0 0 200px rgba(15, 55, 84, 0.77);
+}
+
+main figcaption {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+main section button {
+  margin-top: 50px;
+}
+
+/* Responsive Design: Bei kleinen Bildschirmen (z.B. Mobil) vertikal stapeln */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ---------------    Styling für den Footer    --------------- */
 footer {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("assets/images/footer1.jpg");
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.777), rgba(0, 0, 0, 0.61)),
+    url("assets/images/footer1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
-  color: white;
+  color: var(--button-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 footer nav ul {
@@ -84,19 +156,52 @@ footer nav ul {
 }
 
 footer nav ul li a {
-  color: white;
+  color: var(--button-bg-color);
   text-decoration: underline;
   text-decoration-color: white;
   text-underline-offset: 4px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-size: 10px;
+  transition: all 0.2s ease;
 }
 
-/* Styling für den Footer-Button */
-.footer-button {
-  padding: 12px 24px;
-  font-size: 15px;
-  border-radius: 10px;
-  background-color: #cccccc; /* Passend zum Header */
-  color: black;
-  border: none;
-  cursor: pointer;
+footer nav ul li a:hover {
+  color: #e0e0e0;
+  text-decoration-thickness: 2px;
+}
+
+footer nav ul li a:active {
+  text-decoration-thickness: 3px;
+  color: #aaaaaa;
+}
+
+footer button {
+  margin-block: 20px;
+}
+
+/* Styling für Buttons (Hauptstyling) */
+.button-main {
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-bg-color);
+  color: var(--button-color);
+  border: none; /* Standard-Border entfernen */
+  cursor: pointer; /* Für bessere UX */
+  transition: all 0.2s ease; /* Sanfte Übergänge */
+}
+
+.button-main:hover {
+  background-color: #aaaaaa; /* Dunkleres Grau beim Hover */
+  transform: translateY(-2px); /* Leicht nach oben */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+}
+
+.button-main:active {
+  transform: translateY(0) scale(0.98); /* Zurück und leicht kleiner beim Klick */
+}
+
+.copy {
+  margin-top: 5px;
+  font-size: 10px;
 }
