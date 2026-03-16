@@ -62,3 +62,41 @@ header nav ul li a {
 main {
   background-color: black;
 }
+
+/* Styling für den Footer */
+footer {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("assets/images/footer1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer nav ul li a {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-underline-offset: 4px;
+}
+
+/* Styling für den Footer-Button */
+.footer-button {
+  padding: 12px 24px;
+  font-size: 15px;
+  border-radius: 10px;
+  background-color: #cccccc; /* Passend zum Header */
+  color: black;
+  border: none;
+  cursor: pointer;
+}
