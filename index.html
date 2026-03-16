@@ -11,15 +11,15 @@
 
 </head>
 
-<body>
+<body class="home">
     <header>
         <h1 class="head-h1">Thomas Brakutt</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projekte.html">Projekte</a></li>
-                <li><a href="#über-mich.html">Über mich</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="#home" class="nav-home">Home</a></li>
+                <li><a href="projekte.html" class="nav-projekte">Projekte</a></li>
+                <li><a href="ueber-mich.html" class="nav-ueber-mich">Über mich</a></li>
+                <li><a href="kontakt.html" class="nav-kontakt">Kontakt</a></li>
             </ul>
         </nav>
     </header>
@@ -42,7 +42,7 @@
                 <br>
                 die sowohl funktional, technisch stabil als auch ästhetisch ansprechend und intuitiv für Nutzer sind.
             </p>
-            <button class="button-main">Meine Projekte</button>
+            <button class="button-main" id="projekte-button">Meine Projekte</button>
         </section>
 
         <figure>
@@ -62,18 +62,19 @@
             </p>
         </section>
 
-        <button class="button-main">Kontakt</button>
+        <button class="button-main" id="kontakt-button">Kontakt</button>
 
-        <nav>
-            <ul>
-                <li><a href="#impressum">Impressum</a></li>
-                <li><a href="#datenschutz">Datenschutz</a></li>
-                <li><a href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
-            </ul>
-        </nav>
-        <p class="copy">&copy; 2026 Thomas Brakutt. All rights reserved.</p>
+        <section class="footnote">
+            <nav>
+                <ul>
+                    <li><a href="#impressum">Impressum</a></li>
+                    <li><a href="#datenschutz">Datenschutz</a></li>
+                    <li><a href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
+                </ul>
+            </nav>
+            <p class="copy">&copy; 2026 Thomas Brakutt. All rights reserved.</p>
+        </section>
     </footer>
-
 </body>
 
 </html>

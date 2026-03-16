@@ -54,9 +54,6 @@ header {
 header h1 {
   color: white;
   margin-left: 3rem;
-  text-decoration: underline;
-  text-decoration-color: white;
-  text-underline-offset: 4px;
 }
 
 header nav ul {
@@ -66,7 +63,7 @@ header nav ul {
 
 header nav ul li a {
   color: white;
-  text-decoration: underline;
+  text-decoration: none; /* Standard: kein Unterstrich */
   text-decoration-color: white;
   text-underline-offset: 4px;
   transition: all 0.2s ease;
@@ -74,12 +71,22 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: #e0e0e0;
+  text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
 header nav ul li a:active {
   text-decoration-thickness: 3px;
   color: #cccccc;
+}
+
+/* Aktive Links basierend auf der Seite */
+body.home .nav-home,
+body.projekte .nav-projekte,
+body.ueber-mich .nav-ueber-mich,
+body.kontakt .nav-kontakt {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 /* ---------------    Styling für den Hauptinhalt    ---------------  */
@@ -95,14 +102,30 @@ main {
 }
 
 main section {
-  flex-shrink: 0;
+  flex: 1; /* Lässt die Section schrumpfen, um Platz für Figure zu machen */
+  max-width: 50%; /* Begrenzt die Breite der Section */
+}
+
+/* Text zentrieren */
+main section h2 {
+  text-align: center; /* Zentriert die Überschrift */
+  margin-bottom: 20px; /* Abstand zwischen Überschrift und Text */
+}
+
+main section p {
+  margin-inline: 20px; /* Abstand über und unter der Überschrift */
 }
 
 main figure {
   flex-shrink: 0;
+  flex-basis: 50%; /* Gibt Figure eine feste Basis-Breite */
 }
 
 main figure img {
+  /* Zentriert im figure-Bereich */
+  display: block;
+  margin: 0 auto;
+
   border-radius: 180px;
   border-color: rgba(60, 84, 101, 0.68);
   border-width: 3px;
@@ -140,7 +163,6 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 20px;
   color: var(--button-bg-color);
   display: flex;
   flex-direction: column;
@@ -191,6 +213,15 @@ footer button {
   transition: all 0.2s ease; /* Sanfte Übergänge */
 }
 
+/* ---------------    Styling für .footnote    --------------- */
+.footnote {
+  width: 100%;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Beispiel-Hintergrund, anpassen */
+  color: white;
+  text-align: center;
+}
+
 .button-main:hover {
   background-color: #aaaaaa; /* Dunkleres Grau beim Hover */
   transform: translateY(-2px); /* Leicht nach oben */
@@ -204,4 +235,27 @@ footer button {
 .copy {
   margin-top: 5px;
   font-size: 10px;
+}
+
+/* ---------------    Styling für Über mich    --------------- */
+
+/* Bild eckig machen und zentrieren */
+body.ueber-mich main figure img {
+  border-radius: 0; /* Eckig statt rund */
+  display: block;
+  margin: 0 auto; /* Zentriert im figure-Bereich */
+}
+
+/* Text zentrieren */
+body.ueber-mich main section h2 {
+  text-align: center; /* Zentriert die Überschrift */
+  margin-bottom: 20px; /* Abstand zwischen Überschrift und Text */
+}
+
+body.ueber-mich main section p {
+  margin-inline: 20px; /* Abstand über und unter der Überschrift */
+}
+
+body.nav-ueber-mich main section button {
+  margin-left: 100px;
 }
