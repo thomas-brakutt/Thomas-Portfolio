@@ -104,16 +104,14 @@ main {
 main section {
   flex: 1; /* Lässt die Section schrumpfen, um Platz für Figure zu machen */
   max-width: 50%; /* Begrenzt die Breite der Section */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert den Inhalt horizontal */
 }
 
-/* Text zentrieren */
-main section h2 {
+main section h1,
+p {
   text-align: center; /* Zentriert die Überschrift */
-  margin-bottom: 20px; /* Abstand zwischen Überschrift und Text */
-}
-
-main section p {
-  margin-inline: 20px; /* Abstand über und unter der Überschrift */
 }
 
 main figure {
@@ -145,6 +143,7 @@ main figcaption {
 
 main section button {
   margin-top: 50px;
+  margin-inline: auto;
 }
 
 /* Responsive Design: Bei kleinen Bildschirmen (z.B. Mobil) vertikal stapeln */
