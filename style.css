@@ -1,83 +1,84 @@
-/* CSS Reset */
+/* CSS Reset: entfernt Standardabstände und sorgt für einheitliche Box-Berechnung */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* keine äußeren Abstände */
+  padding: 0; /* keine inneren Abstände */
+  box-sizing: border-box; /* Breite und Höhe schließen Padding und Border ein */
 }
 
 html,
 body {
-  height: 100%;
-  font-family: Arial, sans-serif; /* Oder deine bevorzugte Schriftart */
+  height: 100%; /* Seitenhöhe auf volle Viewport-Höhe setzen */
+  font-family: Arial, sans-serif; /* Standard-Schriftart für die Seite */
 }
 
 body {
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
+  line-height: 1.6; /* bessere Lesbarkeit durch großzügigen Zeilenabstand */
+  color: #333; /* dunkle Textfarbe für guten Kontrast */
+  background-color: #fff; /* weißer Seitenhintergrund */
 }
 
 /* Weitere häufige Resets */
 a {
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; /* Links ohne Unterstrich anzeigen */
 }
 
 ul,
 ol {
-  list-style: none;
+  list-style: none; /* Aufzählungszeichen und Nummerierungen entfernen */
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%; /* Bilder passen sich an die Containerbreite an */
+  height: auto; /* Höhe wird proportional beibehalten */
 }
 
 /* CSS-Variablen für wiederverwendbare Button-Stile */
 :root {
-  --button-padding: 12px 24px;
-  --button-font-size: 15px;
-  --button-border-radius: 10px;
-  --button-bg-color: #cccccc;
-  --button-color: #333; /* Textfarbe, falls nötig */
+  --button-padding: 12px 24px; /* Innenabstand der Buttons */
+  --button-font-size: 15px; /* Schriftgröße der Buttons */
+  --button-border-radius: 999px; /* sehr weich abgerundete Ecken */
+  --button-bg-color: transparent; /* transparenten Hintergrund */
+  --button-color: #e6f7f7; /* helle Textfarbe */
+  --button-border-color: #4fd1c5; /* türkisfarbener Rand */
+  --button-hover-bg: rgba(79, 209, 197, 0.18); /* dezente Hover-Füllung */
 }
 
 /* ---------------    Styling für den Header    --------------- */
 header {
-  background-color: #0f3754;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #0f3754; /* dunkler Blaugrau-Hintergrund */
+  padding: 20px 20px 0px; /* Außenabstand im Header */
+  display: flex; /* Flexbox für Layout */
+  justify-content: space-between; /* Inhalt links und rechts verteilen */
+  align-items: center; /* Inhalte vertikal zentrieren */
 }
 
 header h1 {
-  color: white;
-  margin-left: 3rem;
+  color: white; /* weiße Schrift im Header */
+  margin-left: 3rem; /* Abstand vom linken Rand */
 }
 
 header nav ul {
-  display: flex;
-  gap: 20px;
+  display: flex; /* Navigation in einer Reihe anordnen */
+  gap: 20px; /* Abstand zwischen den Navigationseinträgen */
 }
 
 header nav ul li a {
-  color: white;
-  text-decoration: none; /* Standard: kein Unterstrich */
-  text-decoration-color: white;
-  text-underline-offset: 4px;
-  transition: all 0.2s ease;
+  color: white; /* weiße Linkfarbe */
+  text-decoration: none; /* kein Unterstrich standardmäßig */
+  text-decoration-color: white; /* Unterstrichfarbe weiß */
+  text-underline-offset: 4px; /* Unterstrich etwas höher setzen */
+  transition: all 0.2s ease; /* sanfter Übergang bei Hover */
 }
 
 header nav ul li a:hover {
-  color: #e0e0e0;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  color: #e0e0e0; /* hellere Farbe beim Hover */
+  text-decoration: underline; /* Unterstrich beim Hover */
+  text-decoration-thickness: 2px; /* etwas dickere Linie */
 }
 
 header nav ul li a:active {
-  text-decoration-thickness: 3px;
-  color: #cccccc;
+  text-decoration-thickness: 3px; /* kräftigerer Unterstrich beim Klick */
+  color: #cccccc; /* etwas hellere Farbe beim Aktivieren */
 }
 
 /* Aktive Links basierend auf der Seite */
@@ -85,176 +86,321 @@ body.home .nav-home,
 body.projekte .nav-projekte,
 body.ueber-mich .nav-ueber-mich,
 body.kontakt .nav-kontakt {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration: underline; /* aktive Seite in Navigation hervorheben */
+  text-decoration-thickness: 2px; /* dickere Unterstreichung */
 }
 
-/* ---------------    Styling für den Hauptinhalt    ---------------  */
+/* ---------------    Styling für den main    ---------------  */
 main {
-  background: linear-gradient(to bottom, #0f3754 0%, black 50%, #010a12 90%);
-  color: white; /* Textfarbe für weißen Text auf weißem Hintergrund */
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 20px;
-  padding: 20px;
-  min-height: 100vh; /* Optional, um die Höhe zu setzen */
+  background: linear-gradient(
+    to bottom,
+    #0f3754 0%,
+    black 50%,
+    #010a12 90%
+  ); /* dunkler Farbverlauf als Hintergrund */
+  color: white; /* Textfarbe für weißen Text auf dunklem Hintergrund */
+  display: flex; /* Inhalte nebeneinander anordnen */
+  align-items: center; /* Inhalte vertikal zentrieren */
+  justify-content: space-between;
+  padding: 20px; /* Innenabstand */
+  min-height: 100vh; /* Hauptbereich nimmt mindestens die ganze Bildschirmhöhe ein */
 }
 
 main section {
-  flex: 1; /* Lässt die Section schrumpfen, um Platz für Figure zu machen */
-  max-width: 50%; /* Begrenzt die Breite der Section */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Zentriert den Inhalt horizontal */
+  flex: 1; /* Section kann flexibel wachsen oder schrumpfen */
+  max-width: 50%; /* Breite der Section begrenzen */
+  display: flex; /* Flexbox für den Inhalt */
+  flex-direction: column; /* Inhalte untereinander anordnen */
+  align-items: flex-start; /* Inhalte linksbündig ausrichten */
+  justify-content: center; /* Textblock vertikal sauber ausrichten */
+}
+
+.text-section {
+  padding: 20px; /* Innenabstand für den Textbereich */
 }
 
 main section h1,
-p {
-  text-align: center; /* Zentriert die Überschrift */
+main section p {
+  text-align: left; /* Text links ausrichten */
+  width: 100%; /* volle Breite der Section nutzen */
+}
+.color-word {
+  color: #7fd1ff; /* Beispiel-Farbe für hervorzuhebende Wörter */
 }
 
+.title {
+  font-size: 3rem; /* große Überschrift */
+  line-height: 1.2; /* kompakter Zeilenabstand */
+}
+
+.intro-text {
+  font-size: 1.6rem; /* etwas größere Schrift für Einleitung */
+}
+
+.running-text {
+  font-size: 1.3rem; /* Standardgröße für Fließtext */
+}
+
+/* ---------------    Styling Badges    ---------------  */
+
+/* Container für die Badges */
+.tech-stack {
+  display: flex;
+  justify-content: center; /* Zentriert die Badges horizontal */
+  flex-wrap: wrap; /* Bricht automatisch in die nächste Zeile um, wenn der Platz knapp wird */
+  gap: 12px; /* Abstand zwischen den Badges */
+  list-style: none; /* Entfernt die Aufzählungspunkte */
+  padding: 0; /* Entfernt Standard-Padding der Liste */
+  margin: 50px auto 0; /* Abstand nach oben und re/li auto */
+}
+
+/* Basis-Styling für jedes einzelne Badge */
+.badge {
+  font-family: sans-serif; /* Nutze hier gerne deine globale Schriftart */
+  font-size: 0.875rem; /* Etwas kleiner als der Fließtext (ca. 14px) */
+  font-weight: 600; /* Leicht fett für bessere Lesbarkeit */
+  padding: 6px 14px; /* Innerer Abstand: oben/unten 6px, links/rechts 14px */
+  border-radius: 20px; /* Macht die typische, runde Pillen-Form */
+  border: 1px solid rgba(0, 0, 0, 0.08); /* Sehr feiner, dezenter Rand */
+  transition: transform 0.2s ease; /* Weicher Effekt beim Drüberfahren */
+}
+
+/* Ein kleiner Hover-Effekt zeigt, dass die Seite interaktiv ist */
+.badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Individuelle, dezente Markenfarben (Clean & Pastell) */
+.tech-html {
+  background-color: rgba(227, 79, 38, 0.1); /* HTML Orange mit 10% Deckkraft */
+  color: #e34f26;
+}
+
+.tech-css {
+  background-color: rgba(21, 114, 182, 0.1); /* CSS Blau mit 10% Deckkraft */
+  color: #1572b6;
+}
+
+.tech-js {
+  background-color: rgba(
+    247,
+    223,
+    30,
+    0.15
+  ); /* JS Gelb (etwas mehr Deckkraft wegen Lesbarkeit) */
+  color: #b89700; /* Etwas dunkleres Gelb für guten Kontrast */
+}
+
+.tech-vue {
+  background-color: rgba(65, 184, 131, 0.1); /* Vue Grün mit 10% Deckkraft */
+  color: #41b883;
+}
+
+.tech-java {
+  background-color: rgba(0, 115, 150, 0.1); /* Java Blau mit 10% Deckkraft */
+  color: #007396;
+}
+
+/* ---------------   Ende Styling Badges    ---------------  */
+
 main figure {
-  flex-shrink: 0;
-  flex-basis: 50%; /* Gibt Figure eine feste Basis-Breite */
+  flex-shrink: 0; /* Bildbereich wird nicht kleiner als gewünscht */
+  flex-basis: 40%; /* Bildbereich etwas kleiner machen */
+  display: flex; /* Bild zentriert im Bereich platzieren */
+  justify-content: flex-end; /* horizontal zentrieren */
+  align-items: center; /* vertikal zentrieren */
+  padding-right: 150px;
 }
 
 main figure img {
-  /* Zentriert im figure-Bereich */
-  display: block;
-  margin: 0 auto;
+  display: block; /* Bild als Blockelement */
+  width: 320px; /* Bild etwas kleiner als zuvor */
+  min-width: 320px; /* Mindestbreite für das Bild */
+  max-width: none; /* nicht größer als der Container */
+  object-fit: cover; /* Bild passend zuschneiden */
+  margin: 0; /* keine zusätzlichen Abstände */
 
-  border-radius: 180px;
-  border-color: rgba(60, 84, 101, 0.68);
-  border-width: 3px;
-  border-style: solid;
-  box-shadow:
-    0 0 75px rgba(140, 175, 200, 0.526),
-    0 0 200px rgba(15, 55, 84, 0.77);
+  border-radius: 48px; /* weich abgerundete Ecken statt Pillenform */
+  border-color: rgba(60, 84, 101, 0.68); /* dezenter blauer Rahmen */
+  border-width: 2px; /* etwas feinerer Rahmen */
+  border: 2px solid rgba(60, 84, 101, 0.68);
+  /*border-style: solid; /* durchgezogener Rahmen */
+  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25); /* dezentere Schattenwirkung */
 }
 
 main figcaption {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+  position: absolute; /* aus dem normalen Flow genommen */
+  left: -10000px; /* weit nach links verschoben */
+  width: 1px; /* sehr kleine Breite */
+  height: 1px; /* sehr kleine Höhe */
+  overflow: hidden; /* Inhalte nicht sichtbar machen */
 }
 
 main section button {
-  margin-top: 50px;
-  margin-inline: auto;
+  margin-top: 2rem; /* Abstand zum vorherigen Inhalt */
+  margin-inline: 0; /* keine seitlichen Abstände */
+  align-self: center; /* Button linksbündig unter dem Text blocken */
 }
 
 /* Responsive Design: Bei kleinen Bildschirmen (z.B. Mobil) vertikal stapeln */
 @media (max-width: 768px) {
   main {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /* bei kleinen Bildschirmen vertikal stapeln */
+    text-align: center; /* Text zentrieren */
+  }
+
+  body.home main .hero-section {
+    align-items: center; /* Inhalte zentriert auf Mobilgeräten */
+    max-width: 100%; /* volle Breite nutzen */
+  }
+
+  body.home main .hero-section .hero-title,
+  body.home main .hero-section p {
+    text-align: center; /* Überschrift und Text auf Mobilgeräten zentrieren */
+  }
+
+  body.home main .hero-section .hero-title {
+    font-size: 2.5rem; /* kleinere Überschrift auf kleinen Displays */
+  }
+
+  body.home main .hero-section p {
+    font-size: 1rem; /* kleinerer Fließtext auf mobilen Geräten */
   }
 }
 
 /* ---------------    Styling für den Footer    --------------- */
 footer {
   background:
-    linear-gradient(rgba(0, 0, 0, 0.777), rgba(0, 0, 0, 0.61)),
-    url("assets/images/footer1.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: var(--button-bg-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    linear-gradient(#010a12e0, rgba(0, 0, 0, 0.08)),
+    url("assets/images/footer1.jpg"); /* Hintergrundbild im Footer */
+  background-size: cover; /* Bild passend über die Fläche legen */
+  background-position: center; /* Bild zentrieren */
+  background-repeat: no-repeat; /* Bild nicht wiederholen */
+  color: var(--button-bg-color); /* Textfarbe aus Variable */
+  display: flex; /* Footer-Inhalte flexibel anordnen */
+  flex-direction: column; /* vertikal anordnen */
+  align-items: center; /* Inhalte zentrieren */
+  text-align: center; /* Text zentriert */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* subtile Schattierung */
+}
+
+.footer-info {
+  padding: 20px; /* großzügiger Innenabstand im Footer-Textbereich */
+  color: white; /* weiße Schriftfarbe für bessere Lesbarkeit */
 }
 
 footer nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: flex; /* Footer-Links in einer Reihe */
+  justify-content: center; /* zentriert anordnen */
+  gap: 20px; /* Abstand zwischen den Links */
 }
 
 footer nav ul li a {
-  color: var(--button-bg-color);
-  text-decoration: underline;
-  text-decoration-color: white;
-  text-underline-offset: 4px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-  font-size: 10px;
-  transition: all 0.2s ease;
+  color: white; /* Linkfarbe aus Variable */
+  text-decoration: underline; /* Unterstrich für Footer-Links */
+  text-decoration-color: white; /* Unterstrichfarbe weiß */
+  text-underline-offset: 4px; /* Unterstrich leicht versetzt */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Lesbarkeit verbessern */
+  font-size: 10px; /* kleine Schriftgröße für Footer-Links */
+  transition: all 0.2s ease; /* sanfter Hover-Effekt */
 }
 
 footer nav ul li a:hover {
-  color: #e0e0e0;
-  text-decoration-thickness: 2px;
+  color: #e0e0e0; /* hellere Farbe beim Hover */
+  text-decoration-thickness: 2px; /* etwas dickere Unterstreichung */
 }
 
 footer nav ul li a:active {
-  text-decoration-thickness: 3px;
-  color: #aaaaaa;
+  text-decoration-thickness: 3px; /* stärkerer Unterstrich beim Klick */
+  color: #aaaaaa; /* etwas dunkler beim Aktivieren */
 }
 
-footer button {
-  margin-block: 20px;
+.button-footer {
+  margin-bottom: 20px; /* Abstand oben und unten zum Button */
+  padding: 12px 24px; /* Innenabstand der Buttons */
+  font-size: 15px; /* Schriftgröße der Buttons */
+  border-radius: 999px; /* sehr weich abgerundete Ecken */
+  background-color: #4fd1c4cb; /* transparenten Hintergrund */
+  color: #e6f7f7; /* helle Textfarbe */
+  border-color: white; /* türkisfarbener Rand */
+  cursor: pointer; /* Mauszeiger als Button anzeigen */
+  transition: all 0.2s ease; /* sanfte Übergänge bei Hover/Active */
+  letter-spacing: 0.02em; /* etwas luftigerer Text */
+}
+
+.button-footer:hover {
+  background-color: rgba(0, 0, 0, 0.463); /* schwarze Füllung beim Hover */
+  transform: translateY(-2px); /* Button leicht nach oben bewegen */
+  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16); /* subtiler Glow-Effekt */
+}
+
+.button-footer:active {
+  transform: translateY(0) scale(0.98); /* beim Klick wieder zurück und leicht kleiner */
 }
 
 /* Styling für Buttons (Hauptstyling) */
 .button-main {
-  padding: var(--button-padding);
-  font-size: var(--button-font-size);
-  border-radius: var(--button-border-radius);
-  background-color: var(--button-bg-color);
-  color: var(--button-color);
-  border: none; /* Standard-Border entfernen */
-  cursor: pointer; /* Für bessere UX */
-  transition: all 0.2s ease; /* Sanfte Übergänge */
+  padding: var(--button-padding); /* Innenabstand aus Variable */
+  font-size: var(--button-font-size); /* Schriftgröße aus Variable */
+  border-radius: var(--button-border-radius); /* sehr weich abgerundete Ecken */
+  background-color: var(--button-bg-color); /* transparenter Hintergrund */
+  color: var(--button-color); /* helle Textfarbe */
+  border: 1px solid var(--button-border-color); /* dünner türkisfarbener Rand */
+  cursor: pointer; /* Mauszeiger als Button anzeigen */
+  transition: all 0.2s ease; /* sanfte Übergänge bei Hover/Active */
+  letter-spacing: 0.02em; /* etwas luftigerer Text */
 }
 
 /* ---------------    Styling für .footnote    --------------- */
 .footnote {
-  width: 100%;
-  margin: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* Beispiel-Hintergrund, anpassen */
-  color: white;
-  text-align: center;
+  width: 100%; /* volle Breite der Fußzeile */
+  margin: 0; /* keine äußeren Abstände */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* dunkler Hintergrund für bessere Lesbarkeit */
+  color: white; /* weiße Textfarbe */
+  text-align: center; /* zentrierter Text */
 }
 
 .button-main:hover {
-  background-color: #aaaaaa; /* Dunkleres Grau beim Hover */
-  transform: translateY(-2px); /* Leicht nach oben */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+  background-color: var(
+    --button-hover-bg
+  ); /* dezente türkisfarbene Füllung beim Hover */
+  transform: translateY(-2px); /* Button leicht nach oben bewegen */
+  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16); /* subtiler Glow-Effekt */
 }
 
 .button-main:active {
-  transform: translateY(0) scale(0.98); /* Zurück und leicht kleiner beim Klick */
+  transform: translateY(0) scale(0.98); /* beim Klick wieder zurück und leicht kleiner */
 }
 
 .copy {
-  margin-top: 5px;
-  font-size: 10px;
+  margin-top: 5px; /* kleiner Abstand nach oben */
+  font-size: 10px; /* kleine Schriftgröße für Copyright */
 }
 
 /* ---------------    Styling für Über mich    --------------- */
 
 /* Bild eckig machen und zentrieren */
 body.ueber-mich main figure img {
-  border-radius: 0; /* Eckig statt rund */
-  display: block;
-  margin: 0 auto; /* Zentriert im figure-Bereich */
+  border-radius: 0; /* auf der Über-mich-Seite eckig statt rund */
+  display: block; /* Bild als Block anzeigen */
+  margin: 0 auto; /* Bild horizontal zentrieren */
 }
 
 /* Text zentrieren */
 body.ueber-mich main section h2 {
-  text-align: center; /* Zentriert die Überschrift */
-  margin-bottom: 20px; /* Abstand zwischen Überschrift und Text */
+  text-align: center; /* Überschrift zentriert */
+  margin-bottom: 20px; /* Abstand zur folgenden Textpassage */
 }
 
 body.ueber-mich main section p {
-  margin-inline: 20px; /* Abstand über und unter der Überschrift */
+  margin-inline: 20px; /* seitlicher Abstand für den Fließtext */
 }
 
 body.nav-ueber-mich main section button {
-  margin-left: 100px;
+  margin-left: 100px; /* Button etwas weiter nach rechts verschoben */
 }
