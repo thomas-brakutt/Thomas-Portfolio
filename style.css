@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=VT323&display=swap");
+
 /* CSS Reset: entfernt Standardabstände und sorgt für einheitliche Box-Berechnung */
 * {
   margin: 0; /* keine äußeren Abstände */
@@ -8,7 +10,7 @@
 html,
 body {
   height: 100%; /* Seitenhöhe auf volle Viewport-Höhe setzen */
-  font-family: Arial, sans-serif; /* Standard-Schriftart für die Seite */
+  font-family: "Manrope", sans-serif; /* Standard-Schriftart für die Seite */
 }
 
 body {
@@ -53,6 +55,10 @@ header {
 }
 
 header h1 {
+  font-family: "Manrope", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   color: white; /* weiße Schrift im Header */
   margin-left: 3rem; /* Abstand vom linken Rand */
 }
@@ -104,6 +110,15 @@ main {
   justify-content: space-between;
   padding: 20px; /* Innenabstand */
   min-height: 100vh; /* Hauptbereich nimmt mindestens die ganze Bildschirmhöhe ein */
+}
+
+/* Projekte: vertikales Layout (Intro oben, Grid mittig, GitHub-Link unten) */
+body.projekte main {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 main section {
@@ -200,6 +215,384 @@ main section p {
   background-color: rgba(0, 115, 150, 0.1); /* Java Blau mit 10% Deckkraft */
   color: #007396;
 }
+
+/* =====================================================
+   PROJEKTE
+   ===================================================== */
+
+/* -----------------------------------------------------
+   Gesamtes Layout der Projektseite
+   ----------------------------------------------------- */
+
+body.projekte main {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  min-height: 100vh;
+
+  padding: 60px clamp(24px, 5vw, 80px) 80px;
+}
+
+/*
+   WICHTIG:
+   Überschreibt die allgemeine Regel:
+
+   main section {
+     max-width: 50%;
+     flex: 1;
+     ...
+   }
+
+   Diese Regel hatte die Projektseite eingeengt.
+*/
+body.projekte main > section {
+  width: 100%;
+  max-width: 1200px;
+
+  flex: none;
+
+  padding: 0;
+}
+
+/* =====================================================
+   INTRO
+   ===================================================== */
+
+body.projekte .projects-intro {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 0 auto 50px;
+
+  display: block;
+
+  text-align: center;
+
+  color: white;
+}
+
+/* Überschrift */
+body.projekte .projects-intro h1 {
+  width: 100%;
+
+  margin-bottom: 14px;
+
+  text-align: center;
+
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  line-height: 1.2;
+
+  color: #ffffff;
+}
+
+/* Beschreibung unter Überschrift */
+body.projekte .projects-intro p {
+  width: 100%;
+
+  text-align: center;
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  color: rgba(230, 247, 247, 0.85);
+}
+
+/* =====================================================
+   PROJEKT GRID
+   ===================================================== */
+
+body.projekte .projects-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto 45px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  align-items: stretch;
+}
+
+/* =====================================================
+   PROJEKT KARTE
+   ===================================================== */
+
+.project-card {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  /*
+     Dunkle Karte, damit sie sich schön
+     in dein bestehendes Design einfügt
+  */
+  background: rgba(15, 55, 84, 0.38);
+
+  border: 1px solid rgba(79, 209, 197, 0.18);
+
+  border-radius: 16px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* =====================================================
+   HOVER DER GESAMTEN KARTE
+   ===================================================== */
+
+.project-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(79, 209, 197, 0.65);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(79, 209, 197, 0.13);
+}
+
+/* =====================================================
+   PROJEKT BILD
+   ===================================================== */
+
+.project-card img {
+  display: block;
+
+  width: 100%;
+
+  /*
+     Alle Projektbilder bekommen
+     dasselbe Seitenverhältnis
+  */
+  aspect-ratio: 16 / 10;
+
+  height: auto;
+
+  object-fit: cover;
+
+  /*
+     dezente Trennlinie zwischen
+     Screenshot und Textbereich
+  */
+  border-bottom: 1px solid rgba(79, 209, 197, 0.15);
+}
+
+/* =====================================================
+   INHALT DER KARTE
+   ===================================================== */
+
+.card-body {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px;
+
+  gap: 10px;
+}
+
+/* Projektname */
+.card-body h3 {
+  margin: 0;
+
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: #ffffff;
+}
+
+/* Beschreibung */
+.card-body p {
+  margin: 0;
+
+  flex: 1;
+
+  font-size: 0.95rem;
+  line-height: 1.6;
+
+  color: rgba(230, 247, 247, 0.8);
+}
+
+/* =====================================================
+   BUTTON-BEREICH
+   ===================================================== */
+
+.card-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 16px;
+
+  flex-wrap: wrap;
+}
+
+/* Grunddesign für beide Links */
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 18px;
+
+  border-radius: 999px;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* =====================================================
+   LIVE BUTTON
+   ===================================================== */
+
+.btn-outline {
+  color: var(--button-border-color);
+
+  background: transparent;
+
+  border: 1px solid var(--button-border-color);
+}
+
+.btn-outline:hover {
+  background: var(--button-hover-bg);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 10px rgba(79, 209, 197, 0.25);
+}
+
+/* =====================================================
+   REPO BUTTON
+   ===================================================== */
+
+.btn-primary {
+  color: #071a1a;
+
+  background: var(--button-border-color);
+
+  border: 1px solid var(--button-border-color);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 12px rgba(79, 209, 197, 0.4);
+}
+
+/* =====================================================
+   GITHUB BEREICH
+   ===================================================== */
+
+body.projekte .projects-more {
+  width: 100%;
+  max-width: 1200px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin: 5px auto 0;
+}
+
+/* GitHub Button */
+.btn-github {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 22px;
+
+  color: #e6f7f7;
+
+  background: transparent;
+
+  border: 1px solid var(--button-border-color);
+
+  border-radius: 999px;
+
+  font-weight: 500;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-github:hover {
+  background: var(--button-hover-bg);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 12px rgba(79, 209, 197, 0.25);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  body.projekte .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Smartphone */
+@media (max-width: 700px) {
+  body.projekte main {
+    padding: 40px 20px 60px;
+  }
+
+  body.projekte .projects-intro {
+    margin-bottom: 35px;
+  }
+
+  body.projekte .projects-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .project-card {
+    max-width: 500px;
+
+    margin-inline: auto;
+  }
+
+  .card-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* --------------- Ende Projekte --------------- */
 
 /* ---------------   Ende Styling Badges    ---------------  */
 
@@ -384,23 +777,458 @@ footer nav ul li a:active {
 
 /* ---------------    Styling für Über mich    --------------- */
 
-/* Bild eckig machen und zentrieren */
+/* =====================================================
+   ÜBER MICH
+   ===================================================== */
+
+/* Gesamtes Layout der Über-mich-Seite */
+body.ueber-mich main {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(50px, 6vw, 100px);
+
+  padding: 60px clamp(40px, 6vw, 100px);
+}
+
+/* =====================================================
+   TEXTBEREICH
+   ===================================================== */
+
+body.ueber-mich main .about-text {
+  /* Text bekommt etwas mehr Platz als das Bild */
+  flex: 1 1 60%;
+
+  width: 100%;
+  max-width: 750px;
+
+  /* überschreibt dein allgemeines
+     main section { max-width: 50%; } */
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Überschrift */
+body.ueber-mich .about-text h2 {
+  width: 100%;
+
+  text-align: left;
+
+  margin-bottom: 30px;
+
+  font-size: 2rem;
+}
+
+/* Einzelne Textabsätze */
+body.ueber-mich .about-text p {
+  width: 100%;
+
+  margin: 0 0 1.5rem 0;
+
+  text-align: left;
+
+  line-height: 1.7;
+}
+
+/* Letzter Absatz braucht unten keinen zusätzlichen Abstand */
+body.ueber-mich .about-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* =====================================================
+   KONTAKT-BUTTON
+   ===================================================== */
+
+body.ueber-mich .about-text .button-main {
+  align-self: center;
+
+  margin-top: 2rem;
+}
+
+/* =====================================================
+   BILDBEREICH
+   ===================================================== */
+
+body.ueber-mich main figure {
+  flex: 0 1 35%;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  /* überschreibt dein allgemeines padding-right: 150px */
+  padding-right: 0;
+}
+
+/* Bild */
 body.ueber-mich main figure img {
-  border-radius: 0; /* auf der Über-mich-Seite eckig statt rund */
-  display: block; /* Bild als Block anzeigen */
-  margin: 0 auto; /* Bild horizontal zentrieren */
+  display: block;
+
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
+
+  height: auto;
+
+  object-fit: cover;
+
+  margin: 0;
+
+  /* wenn du es weiterhin eckig möchtest */
+  border-radius: 0;
+
+  border: 2px solid rgba(60, 84, 101, 0.68);
+
+  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
 }
 
-/* Text zentrieren */
-body.ueber-mich main section h2 {
-  text-align: center; /* Überschrift zentriert */
-  margin-bottom: 20px; /* Abstand zur folgenden Textpassage */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  body.ueber-mich main {
+    flex-direction: column;
+
+    gap: 50px;
+
+    padding: 40px 24px;
+  }
+
+  body.ueber-mich main .about-text {
+    max-width: 700px;
+
+    flex: none;
+  }
+
+  body.ueber-mich main figure {
+    width: 100%;
+
+    flex: none;
+  }
+
+  body.ueber-mich main figure img {
+    max-width: 280px;
+  }
+}
+/* --------------- Kontaktformular Styles --------------- */
+
+/* =====================================================
+   GRUNDLAYOUT DER KONTAKTSEITE
+   ===================================================== */
+
+body.kontakt main .contact-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  flex: none;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  /* Abstand zwischen Text und Formular */
+  gap: clamp(60px, 8vw, 140px);
+
+  /* gesamte Contact-Section mittig auf der Seite */
+  margin: 0 auto;
+
+  padding: 60px 40px;
 }
 
-body.ueber-mich main section p {
-  margin-inline: 20px; /* seitlicher Abstand für den Fließtext */
+/* =====================================================
+   LINKE SEITE
+   ===================================================== */
+
+.contact-left {
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  color: white;
 }
 
-body.nav-ueber-mich main section button {
-  margin-left: 100px; /* Button etwas weiter nach rechts verschoben */
+/* Textbereich begrenzen */
+.placeholder-text {
+  width: 100%;
+  max-width: 420px;
 }
+
+/* Überschrift */
+.contact-left .placeholder-text h2 {
+  font-size: 2rem;
+
+  margin-bottom: 12px;
+
+  color: #e6f7f7;
+}
+
+/* Fließtext */
+.contact-left .placeholder-text p {
+  color: rgba(230, 247, 247, 0.9);
+
+  line-height: 1.5;
+
+  text-align: left;
+
+  margin: 0;
+}
+
+/* =====================================================
+   RECHTE SEITE
+   ===================================================== */
+
+.contact-right {
+  display: flex;
+
+  /* Formular innerhalb der rechten Hälfte zentrieren */
+  justify-content: center;
+  align-items: center;
+}
+
+/* =====================================================
+   FORMULAR
+   ===================================================== */
+
+.contact-form {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  /* Formularfelder über komplette Formularbreite */
+  align-items: stretch;
+}
+
+/* =====================================================
+   VORNAME + NACHNAME
+   ===================================================== */
+
+.form-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+/* Beide Felder gleich breit */
+.form-row .form-field {
+  width: 100%;
+}
+
+/* =====================================================
+   ALLGEMEINE FORM-FELDER
+   ===================================================== */
+
+.contact-form .form-field {
+  width: 100%;
+
+  max-width: none;
+}
+
+.form-field {
+  position: relative;
+
+  margin-bottom: 16px;
+}
+
+/* =====================================================
+   INPUT + TEXTAREA
+   ===================================================== */
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+
+  padding: 16px 12px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  background: #ffffff;
+
+  color: #0b0b0b;
+
+  font-size: 1rem;
+
+  /*
+     Sorgt dafür, dass Border und Glow
+     weich ein- und ausgeblendet werden
+  */
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Textarea darf nur vertikal verändert werden */
+.form-field textarea {
+  resize: vertical;
+}
+
+/* =====================================================
+   HOVER-EFFEKT
+   ===================================================== */
+
+.form-field input:hover,
+.form-field textarea:hover {
+  /* gleiche Türkisfarbe wie beim Button */
+  border-color: var(--button-border-color);
+
+  /*
+     Leichter türkisfarbener Glow
+  */
+  box-shadow:
+    0 0 6px rgba(79, 209, 197, 0.45),
+    0 0 14px rgba(79, 209, 197, 0.22);
+}
+
+/* =====================================================
+   FOCUS-EFFEKT
+   Sobald ein Feld angeklickt / ausgewählt wird
+   ===================================================== */
+
+.form-field input:focus,
+.form-field textarea:focus {
+  /* normalen Browser-Rahmen entfernen */
+  outline: none;
+
+  border-color: var(--button-border-color);
+
+  /*
+     Focus etwas stärker als Hover
+  */
+  box-shadow:
+    0 0 8px rgba(79, 209, 197, 0.55),
+    0 0 18px rgba(79, 209, 197, 0.28);
+}
+
+/* =====================================================
+   LABELS
+   Normal: links im Eingabefeld
+   ===================================================== */
+
+.form-field label {
+  position: absolute;
+
+  /* links statt rechts */
+  left: 12px;
+  right: auto;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #6b6b6b;
+
+  pointer-events: none;
+
+  /* wichtig für Floating Label auf dem Rand */
+  background: #ffffff;
+
+  padding: 0 6px;
+
+  text-align: left;
+
+  width: auto;
+
+  transition:
+    transform 0.18s ease,
+    font-size 0.18s ease,
+    top 0.18s ease,
+    color 0.18s ease,
+    left 0.18s ease;
+}
+
+/* =====================================================
+   FLOATING LABEL
+   Beim Anklicken nach oben links auf den Rand
+   ===================================================== */
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  /* Label auf oberen Rand setzen */
+  top: 0;
+  left: 12px;
+
+  transform: translateY(-50%);
+
+  font-size: 0.82rem;
+
+  color: var(--button-border-color);
+
+  /* weißer Hintergrund über dem Border */
+  background: #ffffff;
+
+  /* etwas mehr Platz um den Text */
+  padding: 1px 7px;
+
+  /* weiche Ecken */
+  border-radius: 6px;
+}
+
+/* =====================================================
+   SENDEN BUTTON
+   ===================================================== */
+
+.contact-form .button-main {
+  margin-top: 8px;
+
+  /* Button mittig unter Formular */
+  align-self: center;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 900px) {
+  body.kontakt main .contact-grid {
+    /* Text und Formular untereinander */
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    max-width: 650px;
+
+    padding: 40px 24px;
+  }
+
+  /* Textblock auf kleineren Displays mittiger platzieren */
+  .contact-left {
+    justify-content: center;
+  }
+
+  .placeholder-text {
+    max-width: 520px;
+  }
+
+  /* Formular mittig */
+  .contact-right {
+    justify-content: center;
+  }
+
+  /* Vorname und Nachname untereinander */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------- Ende Kontaktformular Styles --------------- */
+/* Ende Kontaktformular Styles */

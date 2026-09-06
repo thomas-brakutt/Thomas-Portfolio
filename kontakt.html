@@ -13,7 +13,7 @@
 
 <body class="kontakt">
     <header>
-        <h1 class="head-h1">Thomas Brakutt</h1>
+        <h1>Thomas Brakutt</h1>
         <nav>
             <ul>
                 <li><a href="index.html" class="nav-home">Home</a></li>
@@ -24,21 +24,54 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h1>Kontaktinformationen</h1>
+        <section class="contact-grid">
+            <div class="contact-left">
+                <div class="placeholder-text">
+                    <h2>Melde dich gern</h2>
+                    <p>Du hast ein spannendes Projekt, eine passende Stelle oder möchtest dich einfach austauschen? <br>
+                        Dann schreib mir gern. <br> <br>
+                        Ich freue mich auf neue Herausforderungen, interessante Ideen und darauf, gemeinsam gute
+                        digitale Lösungen zu entwickeln.
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <form class="contact-form" action="#" method="post" novalidate>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <input id="vorname" name="vorname" type="text" required placeholder=" ">
+                            <label for="vorname">Vorname</label>
+                        </div>
+
+                        <div class="form-field">
+                            <input id="nachname" name="nachname" type="text" required placeholder=" ">
+                            <label for="nachname">Nachname</label>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <input id="email" name="email" type="email" required placeholder=" ">
+                        <label for="email">E-Mail</label>
+                    </div>
+
+                    <div class="form-field">
+                        <textarea id="nachricht" name="nachricht" rows="6" placeholder=" "></textarea>
+                        <label for="nachricht">Nachricht</label>
+                    </div>
+
+                    <button class="button-main" type="submit">Senden</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
         <section class="footer-info">
-            <h2>Thomas Brakutt</h2>
-            <h3>Frontend Developer & Geprüfter Java Developer</h3>
-            <p>Ich bin offen für neue Herausforderungen und Projekte als Frontend- & Java - Developer<br>
-                und freue mich über Ihre Nachricht.
-            </p>
+            <h3>Interesse an einer Zusammenarbeit?</h3>
+            <br>
+            <p>Ich freue mich darauf, mein Wissen einzubringen, Neues dazuzulernen<br>und gemeinsam spannende Projekte
+                umzusetzen.</p>
         </section>
-
-        <button class="button-main" id="kontakt-button">Kontakt</button>
 
         <section class="footnote">
             <nav>

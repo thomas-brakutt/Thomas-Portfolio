@@ -13,7 +13,7 @@
 
 <body class="projekte">
     <header>
-        <h1 class="head-h1">Thomas Brakutt</h1>
+        <h1>Thomas Brakutt</h1>
         <nav>
             <ul>
                 <li><a href="index.html" class="nav-home">Home</a></li>
@@ -24,10 +24,76 @@
         </nav>
     </header>
     <main>
-        <section>
-            <h1>Meine Projekte - Test</h1>
+        <section class="projects-intro">
+            <h1>Meine Projekte</h1>
+            <p>Eine Auswahl meiner aktuellen Arbeiten. Klick auf "Live" um die Demo zu sehen oder auf "Repo" für den
+                Quellcode.</p>
+        </section>
+
+        <section class="projects-grid">
+            <article class="project-card">
+                <img src="https://picsum.photos/seed/p1/600/400" alt="Screenshot Projekt 1" loading="lazy">
+                <div class="card-body">
+                    <h3>Projekt 1</h3>
+                    <p>Kurzbeschreibung: Responsive Landingpage mit Animationen und Formular.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-outline">Projekt ansehen</a>
+                        <a href="#" class="btn btn-primary">Quellcode</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="https://picsum.photos/seed/p2/600/400" alt="Screenshot Projekt 2" loading="lazy">
+                <div class="card-body">
+                    <h3>Projekt 2</h3>
+                    <p>Kurzbeschreibung: Interaktive Web‑App mit Vue.js und lokalem Storage.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-outline">Projekt ansehen</a>
+                        <a href="#" class="btn btn-primary">Quellcode</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <img src="https://picsum.photos/seed/p3/600/400" alt="Screenshot Projekt 3" loading="lazy">
+                <div class="card-body">
+                    <h3>Projekt 3</h3>
+                    <p>Kurzbeschreibung: Java‑Backend mit REST API und einfacher Frontend‑Integration.</p>
+                    <div class="card-actions">
+                        <a href="#" class="btn btn-outline">Projekt ansehen</a>
+                        <a href="#" class="btn btn-primary">Quellcode</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="projects-more">
+            <a href="https://github.com/DEIN-BENUTZERNAME" class="btn btn-github" target="_blank" rel="noopener">Alle
+                Projekte auf GitHub</a>
         </section>
     </main>
+    <footer>
+        <section class="footer-info">
+            <h3>Interesse an einer Zusammenarbeit?</h3>
+            <br>
+            <p>Ich freue mich darauf, mein Wissen einzubringen, Neues dazuzulernen<br>und gemeinsam spannende Projekte
+                umzusetzen.</p>
+        </section>
+
+        <button class="button-footer" id="kontakt-button">Jetzt Kontakt aufnehmen</button>
+
+        <section class="footnote">
+            <nav>
+                <ul>
+                    <li><a href="#impressum">Impressum</a></li>
+                    <li><a href="#datenschutz">Datenschutz</a></li>
+                    <li><a href="#cookie-einstellungen">Cookie-Einstellungen</a></li>
+                </ul>
+            </nav>
+            <p class="copy">&copy; 2026 Thomas Brakutt. All rights reserved.</p>
+        </section>
+    </footer>
 </body>
 
 </html>
