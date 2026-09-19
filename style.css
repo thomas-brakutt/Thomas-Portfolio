@@ -1245,3 +1245,70 @@ body.kontakt main .contact-grid {
 
 /* --------------- Ende Kontaktformular Styles --------------- */
 /* Ende Kontaktformular Styles */
+
+/* =====================================================
+   IMPRESSUM / RECHTLICHE SEITEN
+   ===================================================== */
+
+body.impressum .legal-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  min-height: 100vh;
+
+  padding: 80px 40px;
+}
+
+body.impressum .legal-content {
+  width: 100%;
+  max-width: 800px;
+
+  display: block;
+
+  color: white;
+}
+
+body.impressum .legal-content h2 {
+  margin-bottom: 40px;
+
+  font-size: 2.5rem;
+
+  color: #ffffff;
+}
+
+body.impressum .legal-content h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  font-size: 1.2rem;
+
+  color: #e6f7f7;
+}
+
+body.impressum .legal-content p {
+  margin: 0;
+
+  line-height: 1.8;
+
+  color: rgba(230, 247, 247, 0.9);
+}
+
+body.impressum .legal-content a {
+  color: var(--button-border-color);
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+body.impressum .legal-content a:hover {
+  text-decoration: underline;
+}
+
+/* Smartphone */
+@media (max-width: 768px) {
+  body.impressum .legal-main {
+    padding: 50px 24px;
+  }
+}
