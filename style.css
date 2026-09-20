@@ -1,69 +1,111 @@
+/* =========================================================
+   GOOGLE FONTS
+   ========================================================= */
+
+/*
+   Manrope = Hauptschrift
+   VT323    = aktuell als zusätzliche Schrift geladen
+              und kann später z. B. für Retro-Akzente genutzt werden
+*/
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=VT323&display=swap");
 
-/* CSS Reset: entfernt Standardabstände und sorgt für einheitliche Box-Berechnung */
+/* =========================================================
+   RESET / GRUNDEINSTELLUNGEN
+   ========================================================= */
+
+/*
+   Entfernt Browser-Standardabstände
+   und sorgt für berechenbare Größen.
+*/
 * {
-  margin: 0; /* keine äußeren Abstände */
-  padding: 0; /* keine inneren Abstände */
-  box-sizing: border-box; /* Breite und Höhe schließen Padding und Border ein */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,
+html {
+  min-height: 100%;
+  font-family: "Manrope", sans-serif;
+}
+
 body {
-  height: 100%; /* Seitenhöhe auf volle Viewport-Höhe setzen */
-  font-family: "Manrope", sans-serif; /* Standard-Schriftart für die Seite */
+  min-height: 100%;
+
+  font-family: "Manrope", sans-serif;
+  line-height: 1.6;
+
+  color: #333333;
+  background-color: #ffffff;
 }
 
-body {
-  line-height: 1.6; /* bessere Lesbarkeit durch großzügigen Zeilenabstand */
-  color: #333; /* dunkle Textfarbe für guten Kontrast */
-  background-color: #fff; /* weißer Seitenhintergrund */
-}
-
-/* Weitere häufige Resets */
+/* Links standardmäßig ohne Unterstreichung */
 a {
-  text-decoration: none; /* Links ohne Unterstrich anzeigen */
+  text-decoration: none;
 }
 
+/* Listen ohne Standard-Aufzählungszeichen */
 ul,
 ol {
-  list-style: none; /* Aufzählungszeichen und Nummerierungen entfernen */
+  list-style: none;
 }
 
+/* Bilder niemals größer als ihr Container */
 img {
-  max-width: 100%; /* Bilder passen sich an die Containerbreite an */
-  height: auto; /* Höhe wird proportional beibehalten */
+  max-width: 100%;
+  height: auto;
 }
 
-/* CSS-Variablen für wiederverwendbare Button-Stile */
+/*
+   Formularelemente übernehmen die Schriftart
+   der restlichen Website.
+*/
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================================================
+   CSS-VARIABLEN
+   ========================================================= */
+
 :root {
-  --button-padding: 12px 24px; /* Innenabstand der Buttons */
-  --button-font-size: 15px; /* Schriftgröße der Buttons */
-  --button-border-radius: 999px; /* sehr weich abgerundete Ecken */
-  --button-bg-color: transparent; /* transparenten Hintergrund */
-  --button-color: #e6f7f7; /* helle Textfarbe */
-  --button-border-color: #4fd1c5; /* türkisfarbener Rand */
-  --button-hover-bg: rgba(79, 209, 197, 0.18); /* dezente Hover-Füllung */
+  --button-padding: 12px 24px;
+  --button-font-size: 15px;
+  --button-border-radius: 999px;
+
+  --button-bg-color: transparent;
+  --button-color: #e6f7f7;
+
+  --button-border-color: #4fd1c5;
+  --button-hover-bg: rgba(79, 209, 197, 0.18);
 }
 
-/* ---------------    Styling für den Header    --------------- */
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 header {
-  background-color: #0f3754; /* dunkler Blaugrau-Hintergrund */
-  padding: 20px 20px 0px; /* Außenabstand im Header */
-  display: flex; /* Flexbox für Layout */
-  justify-content: space-between; /* Inhalt links und rechts verteilen */
-  align-items: center; /* Inhalte vertikal zentrieren */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 20px 0;
+
+  background-color: #0f3754;
 }
 
-/* Thomas Brakutt Überschrift */
+/* ---------------------------------------------------------
+   Name / Logo
+   --------------------------------------------------------- */
+
 .site-name {
   margin-left: 3rem;
 }
 
 .site-name a {
-  color: white;
-  text-decoration: none;
+  color: #ffffff;
 
-  font-family: "Manrope", sans-serif;
   font-size: 2.4rem;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -75,202 +117,310 @@ header {
   color: #e0e0e0;
 }
 
-/* Navigation Header*/
+/* ---------------------------------------------------------
+   Hauptnavigation
+   --------------------------------------------------------- */
+
 header nav ul {
-  display: flex; /* Navigation in einer Reihe anordnen */
-  gap: 20px; /* Abstand zwischen den Navigationseinträgen */
+  display: flex;
+  gap: 20px;
 }
 
 header nav ul li a {
-  color: white; /* weiße Linkfarbe */
-  text-decoration: none; /* kein Unterstrich standardmäßig */
-  text-decoration-color: white; /* Unterstrichfarbe weiß */
-  text-underline-offset: 4px; /* Unterstrich etwas höher setzen */
-  transition: all 0.2s ease; /* sanfter Übergang bei Hover */
+  color: #ffffff;
+
+  text-decoration: none;
+  text-decoration-color: #ffffff;
+  text-underline-offset: 4px;
+
+  transition:
+    color 0.2s ease,
+    text-decoration-thickness 0.2s ease;
 }
 
 header nav ul li a:hover {
-  color: #e0e0e0; /* hellere Farbe beim Hover */
-  text-decoration: underline; /* Unterstrich beim Hover */
-  text-decoration-thickness: 2px; /* etwas dickere Linie */
+  color: #e0e0e0;
+
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 header nav ul li a:active {
-  text-decoration-thickness: 3px; /* kräftigerer Unterstrich beim Klick */
-  color: #cccccc; /* etwas hellere Farbe beim Aktivieren */
+  color: #cccccc;
+
+  text-decoration-thickness: 3px;
 }
 
-/* Aktive Links basierend auf der Seite */
+/*
+   Aktuelle Seite in der Navigation markieren.
+*/
 body.home .nav-home,
 body.projekte .nav-projekte,
 body.ueber-mich .nav-ueber-mich,
 body.kontakt .nav-kontakt {
-  text-decoration: underline; /* aktive Seite in Navigation hervorheben */
-  text-decoration-thickness: 2px; /* dickere Unterstreichung */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
-/* ---------------    Styling für den main    ---------------  */
+/* =========================================================
+   ALLGEMEINER MAIN-BEREICH
+   ========================================================= */
+
 main {
-  background: linear-gradient(
-    to bottom,
-    #0f3754 0%,
-    black 50%,
-    #010a12 90%
-  ); /* dunkler Farbverlauf als Hintergrund */
-  color: white; /* Textfarbe für weißen Text auf dunklem Hintergrund */
-  display: flex; /* Inhalte nebeneinander anordnen */
-  align-items: center; /* Inhalte vertikal zentrieren */
+  min-height: 100vh;
+
+  color: #ffffff;
+
+  background: linear-gradient(to bottom, #0f3754 0%, #000000 50%, #010a12 90%);
+}
+
+/* =========================================================
+   STARTSEITE
+   ========================================================= */
+
+body.home main {
+  display: flex;
   justify-content: space-between;
-  padding: 20px; /* Innenabstand */
-  min-height: 100vh; /* Hauptbereich nimmt mindestens die ganze Bildschirmhöhe ein */
-}
-
-/* Projekte: vertikales Layout (Intro oben, Grid mittig, GitHub-Link unten) */
-body.projekte main {
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 40px;
-  padding-bottom: 60px;
+
+  padding: 20px;
 }
 
-main section {
-  flex: 1; /* Section kann flexibel wachsen oder schrumpfen */
-  max-width: 50%; /* Breite der Section begrenzen */
-  display: flex; /* Flexbox für den Inhalt */
-  flex-direction: column; /* Inhalte untereinander anordnen */
-  align-items: flex-start; /* Inhalte linksbündig ausrichten */
-  justify-content: center; /* Textblock vertikal sauber ausrichten */
+/* ---------------------------------------------------------
+   Linker Textbereich
+   --------------------------------------------------------- */
+
+body.home .text-section {
+  flex: 1 1 55%;
+
+  width: 100%;
+  max-width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  padding: 20px;
 }
 
-.text-section {
-  padding: 20px; /* Innenabstand für den Textbereich */
+body.home .text-section h1,
+body.home .text-section p {
+  width: 100%;
+  text-align: left;
 }
 
-main section h1,
-main section p {
-  text-align: left; /* Text links ausrichten */
-  width: 100%; /* volle Breite der Section nutzen */
-}
+/* Türkise Hervorhebung */
 .color-word {
-  color: #7fd1ff; /* Beispiel-Farbe für hervorzuhebende Wörter */
+  color: #7fd1ff;
 }
 
+/* Hauptüberschrift */
 .title {
-  /* Schrift je nach Bildschirmbreite automatisch anpassen, auf großen Displays aber bei maximal 3rem */
   font-size: clamp(2rem, 3.2vw, 3rem);
   line-height: 1.2;
-  /* Überschrift bleibt in einer Zeile */
+
+  /*
+     Auf größeren Displays bleibt die Überschrift
+     wie gewünscht in einer Zeile.
+  */
   white-space: nowrap;
 }
 
+/* Untertitel */
 .intro-text {
-  font-size: 1.6rem; /* etwas größere Schrift für Einleitung */
+  font-size: 1.6rem;
 }
 
+/* Beschreibung */
 .running-text {
-  font-size: 1.3rem; /* Standardgröße für Fließtext */
+  font-size: 1.3rem;
 }
+
+/* ---------------------------------------------------------
+   Projekt-Button auf der Startseite
+   --------------------------------------------------------- */
 
 #projekte-button {
   display: inline-block;
+
   align-self: center;
+
   margin-top: 2rem;
-  text-decoration: none;
 }
 
-/* ---------------    Styling Badges    ---------------  */
+/* =========================================================
+   TECHNOLOGIE-BADGES
+   ========================================================= */
 
-/* Container für die Badges */
 .tech-stack {
   display: flex;
-  justify-content: center; /* Zentriert die Badges horizontal */
-  flex-wrap: wrap; /* Bricht automatisch in die nächste Zeile um, wenn der Platz knapp wird */
-  gap: 12px; /* Abstand zwischen den Badges */
-  list-style: none; /* Entfernt die Aufzählungspunkte */
-  padding: 0; /* Entfernt Standard-Padding der Liste */
-  margin: 50px auto 0; /* Abstand nach oben und re/li auto */
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  width: 100%;
+
+  margin: 50px auto 0;
+  padding: 0;
 }
 
-/* Basis-Styling für jedes einzelne Badge */
 .badge {
-  font-family: sans-serif; /* Nutze hier gerne deine globale Schriftart */
-  font-size: 0.875rem; /* Etwas kleiner als der Fließtext (ca. 14px) */
-  font-weight: 600; /* Leicht fett für bessere Lesbarkeit */
-  padding: 6px 14px; /* Innerer Abstand: oben/unten 6px, links/rechts 14px */
-  border-radius: 20px; /* Macht die typische, runde Pillen-Form */
-  border: 1px solid rgba(0, 0, 0, 0.08); /* Sehr feiner, dezenter Rand */
-  transition: transform 0.2s ease; /* Weicher Effekt beim Drüberfahren */
+  padding: 6px 14px;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+
+  transition: transform 0.2s ease;
 }
 
-/* Ein kleiner Hover-Effekt zeigt, dass die Seite interaktiv ist */
+/*
+   Dezenter Effekt.
+   Die Badges sind keine Links,
+   bewegen sich aber leicht beim Überfahren.
+*/
 .badge:hover {
   transform: translateY(-2px);
 }
 
-/* Individuelle, dezente Markenfarben (Clean & Pastell) */
+/* HTML */
 .tech-html {
-  background-color: rgba(227, 79, 38, 0.1); /* HTML Orange mit 10% Deckkraft */
   color: #e34f26;
+  background-color: rgba(227, 79, 38, 0.1);
 }
 
+/* CSS */
 .tech-css {
-  background-color: rgba(21, 114, 182, 0.1); /* CSS Blau mit 10% Deckkraft */
   color: #1572b6;
+  background-color: rgba(21, 114, 182, 0.1);
 }
 
+/* JavaScript */
 .tech-js {
-  background-color: rgba(
-    247,
-    223,
-    30,
-    0.15
-  ); /* JS Gelb (etwas mehr Deckkraft wegen Lesbarkeit) */
-  color: #b89700; /* Etwas dunkleres Gelb für guten Kontrast */
+  color: #b89700;
+  background-color: rgba(247, 223, 30, 0.15);
 }
 
+/* Vue */
 .tech-vue {
-  background-color: rgba(65, 184, 131, 0.1); /* Vue Grün mit 10% Deckkraft */
   color: #41b883;
+  background-color: rgba(65, 184, 131, 0.1);
 }
 
+/* Java */
 .tech-java {
-  background-color: rgba(0, 115, 150, 0.1); /* Java Blau mit 10% Deckkraft */
   color: #007396;
+  background-color: rgba(0, 115, 150, 0.1);
 }
 
-/* =====================================================
-   PROJEKTE
-   ===================================================== */
+/* =========================================================
+   STARTSEITE - PROFILBILD
+   ========================================================= */
 
-/* -----------------------------------------------------
-   Gesamtes Layout der Projektseite
-   ----------------------------------------------------- */
+body.home main figure {
+  flex: 0 1 40%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding-right: 150px;
+}
+
+body.home main figure img {
+  display: block;
+
+  width: 320px;
+  min-width: 320px;
+
+  object-fit: cover;
+
+  border: 2px solid rgba(60, 84, 101, 0.68);
+  border-radius: 48px;
+
+  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
+}
+
+/* ---------------------------------------------------------
+   Figcaption nur für Screenreader
+   --------------------------------------------------------- */
+
+main figcaption {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+
+  border: 0;
+}
+
+/* =========================================================
+   ALLGEMEINE BUTTONS
+   ========================================================= */
+
+.button-main {
+  display: inline-block;
+
+  padding: var(--button-padding);
+
+  font-size: var(--button-font-size);
+  letter-spacing: 0.02em;
+
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+
+  border: 1px solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button-main:hover {
+  background-color: var(--button-hover-bg);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16);
+}
+
+.button-main:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* =========================================================
+   PROJEKTE
+   ========================================================= */
 
 body.projekte main {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: flex-start;
-
-  min-height: 100vh;
 
   padding: 60px clamp(24px, 5vw, 80px) 80px;
 }
 
-body.projekte main > section {
-  width: 100%;
-  max-width: 1200px;
-
-  flex: none;
-
-  padding: 0;
-}
-
-/* =====================================================
-   INTRO
-   ===================================================== */
+/* ---------------------------------------------------------
+   Einleitung
+   --------------------------------------------------------- */
 
 body.projekte .projects-intro {
   width: 100%;
@@ -278,48 +428,40 @@ body.projekte .projects-intro {
 
   margin: 0 auto 50px;
 
-  display: block;
-
   text-align: center;
-
-  color: white;
 }
 
-/* Überschrift */
 body.projekte .projects-intro h1 {
   width: 100%;
 
   margin-bottom: 14px;
 
-  text-align: center;
+  color: #ffffff;
 
   font-size: clamp(2.2rem, 4vw, 3rem);
   line-height: 1.2;
 
-  color: #ffffff;
+  text-align: center;
 }
 
-/* Beschreibung unter Überschrift */
 body.projekte .projects-intro p {
   width: 100%;
 
-  text-align: center;
+  color: rgba(230, 247, 247, 0.85);
 
   font-size: 1.05rem;
   line-height: 1.7;
 
-  color: rgba(230, 247, 247, 0.85);
+  text-align: center;
 }
 
-/* =====================================================
-   PROJEKT GRID
-   ===================================================== */
+/* ---------------------------------------------------------
+   Projekt-Grid
+   --------------------------------------------------------- */
 
 body.projekte .projects-grid {
   width: 100%;
   max-width: 1200px;
-
-  margin: 0 auto 45px;
 
   display: grid;
 
@@ -328,11 +470,13 @@ body.projekte .projects-grid {
   gap: 24px;
 
   align-items: stretch;
+
+  margin: 0 auto 45px;
 }
 
-/* =====================================================
-   PROJEKT KARTE
-   ===================================================== */
+/* ---------------------------------------------------------
+   Einzelne Projektkarte
+   --------------------------------------------------------- */
 
 .project-card {
   width: 100%;
@@ -344,14 +488,9 @@ body.projekte .projects-grid {
 
   color: #ffffff;
 
-  /*
-     Dunkle Karte, damit sie sich schön
-     in dein bestehendes Design einfügt
-  */
-  background: rgba(15, 55, 84, 0.38);
+  background-color: rgba(15, 55, 84, 0.38);
 
   border: 1px solid rgba(79, 209, 197, 0.18);
-
   border-radius: 16px;
 
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
@@ -361,10 +500,6 @@ body.projekte .projects-grid {
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
-
-/* =====================================================
-   HOVER DER GESAMTEN KARTE
-   ===================================================== */
 
 .project-card:hover {
   transform: translateY(-6px);
@@ -376,35 +511,23 @@ body.projekte .projects-grid {
     0 0 18px rgba(79, 209, 197, 0.13);
 }
 
-/* =====================================================
-   PROJEKT BILD
-   ===================================================== */
-
+/* Projektbild */
 .project-card img {
   display: block;
 
   width: 100%;
-
-  /*
-     Alle Projektbilder bekommen
-     dasselbe Seitenverhältnis
-  */
-  aspect-ratio: 16 / 10;
-
   height: auto;
+
+  aspect-ratio: 16 / 10;
 
   object-fit: cover;
 
-  /*
-     dezente Trennlinie zwischen
-     Screenshot und Textbereich
-  */
   border-bottom: 1px solid rgba(79, 209, 197, 0.15);
 }
 
-/* =====================================================
-   INHALT DER KARTE
-   ===================================================== */
+/* ---------------------------------------------------------
+   Inhalt der Karte
+   --------------------------------------------------------- */
 
 .card-body {
   flex: 1;
@@ -412,51 +535,46 @@ body.projekte .projects-grid {
   display: flex;
   flex-direction: column;
 
-  padding: 22px;
-
   gap: 10px;
+
+  padding: 22px;
 }
 
-/* Projektname */
 .card-body h3 {
   margin: 0;
 
+  color: #ffffff;
+
   font-size: 1.25rem;
   font-weight: 600;
-
-  color: #ffffff;
 }
 
-/* Beschreibung */
 .card-body p {
+  flex: 1;
+
   margin: 0;
 
-  flex: 1;
+  color: rgba(230, 247, 247, 0.8);
 
   font-size: 0.95rem;
   line-height: 1.6;
-
-  color: rgba(230, 247, 247, 0.8);
 }
 
-/* =====================================================
-   BUTTON-BEREICH
-   ===================================================== */
+/* ---------------------------------------------------------
+   Projekt-Buttons
+   --------------------------------------------------------- */
 
 .card-actions {
   display: flex;
+  flex-wrap: wrap;
 
   gap: 10px;
 
   margin-top: 16px;
-
-  flex-wrap: wrap;
 }
 
-/* Grunddesign für beide Links */
 .btn {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
@@ -467,8 +585,6 @@ body.projekte .projects-grid {
   font-size: 0.9rem;
   font-weight: 500;
 
-  text-decoration: none;
-
   cursor: pointer;
 
   transition:
@@ -478,34 +594,28 @@ body.projekte .projects-grid {
     box-shadow 0.2s ease;
 }
 
-/* =====================================================
-   PROJEKTE ANSEHEN BUTTON
-   ===================================================== */
-
+/* Projekt ansehen */
 .btn-outline {
   color: var(--button-border-color);
 
-  background: transparent;
+  background-color: transparent;
 
   border: 1px solid var(--button-border-color);
 }
 
 .btn-outline:hover {
-  background: var(--button-hover-bg);
+  background-color: var(--button-hover-bg);
 
   transform: translateY(-2px);
 
   box-shadow: 0 0 10px rgba(79, 209, 197, 0.25);
 }
 
-/* =====================================================
-   QUELLCODE BUTTON
-   ===================================================== */
-
+/* Quellcode */
 .btn-primary {
   color: #071a1a;
 
-  background: var(--button-border-color);
+  background-color: var(--button-border-color);
 
   border: 1px solid var(--button-border-color);
 }
@@ -516,26 +626,23 @@ body.projekte .projects-grid {
   box-shadow: 0 0 12px rgba(79, 209, 197, 0.4);
 }
 
-/* =====================================================
-   GITHUB BEREICH
-   ===================================================== */
+/* ---------------------------------------------------------
+   GitHub-Link unter den Projekten
+   --------------------------------------------------------- */
 
 body.projekte .projects-more {
   width: 100%;
   max-width: 1200px;
 
   display: flex;
-
   justify-content: center;
   align-items: center;
 
   margin: 5px auto 0;
 }
 
-/* GitHub Button */
 .btn-github {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
@@ -543,10 +650,9 @@ body.projekte .projects-more {
 
   color: #e6f7f7;
 
-  background: transparent;
+  background-color: transparent;
 
   border: 1px solid var(--button-border-color);
-
   border-radius: 999px;
 
   font-weight: 500;
@@ -558,25 +664,762 @@ body.projekte .projects-more {
 }
 
 .btn-github:hover {
-  background: var(--button-hover-bg);
+  background-color: var(--button-hover-bg);
 
   transform: translateY(-2px);
 
   box-shadow: 0 0 12px rgba(79, 209, 197, 0.25);
 }
 
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
+/* =========================================================
+   ÜBER MICH
+   ========================================================= */
 
-/* Tablet */
+body.ueber-mich main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(50px, 6vw, 100px);
+
+  padding: 60px clamp(40px, 6vw, 100px);
+}
+
+/* ---------------------------------------------------------
+   Textbereich
+   --------------------------------------------------------- */
+
+body.ueber-mich .about-text {
+  flex: 1 1 60%;
+
+  width: 100%;
+  max-width: 750px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+body.ueber-mich .about-text h2 {
+  width: 100%;
+
+  margin-bottom: 30px;
+
+  font-size: 2rem;
+
+  text-align: left;
+}
+
+body.ueber-mich .about-text p {
+  width: 100%;
+
+  margin: 0 0 1.5rem;
+
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+body.ueber-mich .about-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------
+   Bild
+   --------------------------------------------------------- */
+
+body.ueber-mich main figure {
+  flex: 0 1 35%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.ueber-mich main figure img {
+  display: block;
+
+  width: 100%;
+  max-width: 320px;
+  min-width: 0;
+
+  height: auto;
+
+  object-fit: cover;
+
+  border: 2px solid rgba(60, 84, 101, 0.68);
+  border-radius: 0;
+
+  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
+}
+
+/* =========================================================
+   KONTAKTSEITE
+   ========================================================= */
+
+body.kontakt main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+/* ---------------------------------------------------------
+   Zweispaltiges Layout
+   --------------------------------------------------------- */
+
+body.kontakt .contact-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: start;
+
+  gap: clamp(60px, 8vw, 140px);
+
+  margin: 0 auto;
+
+  padding: 60px 40px;
+}
+
+/* ---------------------------------------------------------
+   Linker Kontakttext
+   --------------------------------------------------------- */
+
+.contact-left {
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  color: #ffffff;
+}
+
+.placeholder-text {
+  width: 100%;
+  max-width: 420px;
+}
+
+.contact-left .placeholder-text h2 {
+  margin-bottom: 12px;
+
+  color: #e6f7f7;
+
+  font-size: 2rem;
+}
+
+.contact-left .placeholder-text p {
+  margin: 0;
+
+  color: rgba(230, 247, 247, 0.9);
+
+  line-height: 1.5;
+
+  text-align: left;
+}
+
+/* ---------------------------------------------------------
+   Rechte Seite / Formular
+   --------------------------------------------------------- */
+
+.contact-right {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: stretch;
+}
+
+/* Vorname + Nachname nebeneinander */
+.form-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.form-row .form-field {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Formularfelder
+   --------------------------------------------------------- */
+
+.contact-form .form-field {
+  width: 100%;
+}
+
+.form-field {
+  position: relative;
+
+  margin-bottom: 16px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+
+  padding: 16px 12px;
+
+  color: #0b0b0b;
+  background-color: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+
+  font-size: 1rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Textarea nur vertikal vergrößerbar */
+.form-field textarea {
+  resize: vertical;
+}
+
+/* Hover */
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: var(--button-border-color);
+
+  box-shadow:
+    0 0 6px rgba(79, 209, 197, 0.45),
+    0 0 14px rgba(79, 209, 197, 0.22);
+}
+
+/* Focus */
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+
+  border-color: var(--button-border-color);
+
+  box-shadow:
+    0 0 8px rgba(79, 209, 197, 0.55),
+    0 0 18px rgba(79, 209, 197, 0.28);
+}
+
+/* ---------------------------------------------------------
+   Floating Labels
+   --------------------------------------------------------- */
+
+.form-field label {
+  position: absolute;
+
+  top: 50%;
+  left: 12px;
+
+  width: auto;
+
+  padding: 0 6px;
+
+  color: #6b6b6b;
+  background-color: #ffffff;
+
+  text-align: left;
+
+  pointer-events: none;
+
+  transform: translateY(-50%);
+
+  transition:
+    transform 0.18s ease,
+    font-size 0.18s ease,
+    top 0.18s ease,
+    color 0.18s ease,
+    left 0.18s ease;
+}
+
+/*
+   Label bewegt sich nach oben,
+   wenn das Feld aktiv oder bereits gefüllt ist.
+*/
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  top: 0;
+  left: 12px;
+
+  padding: 1px 7px;
+
+  color: var(--button-border-color);
+  background-color: #ffffff;
+
+  border-radius: 6px;
+
+  font-size: 0.82rem;
+
+  transform: translateY(-50%);
+}
+
+/* Senden-Button */
+.contact-form .button-main {
+  align-self: center;
+
+  margin-top: 8px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  background:
+    linear-gradient(#010a12e0, rgba(0, 0, 0, 0.08)),
+    url("assets/images/footer1.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------------------------------------------------------
+   Footer-Text
+   --------------------------------------------------------- */
+
+.footer-info {
+  padding: 20px;
+
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   Kontakt-Button im Footer
+   --------------------------------------------------------- */
+
+.button-footer {
+  display: inline-block;
+
+  margin-bottom: 20px;
+  padding: 12px 24px;
+
+  color: #e6f7f7;
+  background-color: #4fd1c49b;
+
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+
+  font-size: 15px;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button-footer:hover {
+  background-color: rgba(0, 0, 0, 0.463);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16);
+}
+
+.button-footer:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ---------------------------------------------------------
+   Unterer Footer
+   --------------------------------------------------------- */
+
+.footnote {
+  width: 100%;
+
+  margin: 0;
+
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  text-align: center;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+footer nav ul li a {
+  color: #ffffff;
+
+  font-size: 10px;
+
+  text-decoration: underline;
+  text-decoration-color: #ffffff;
+  text-underline-offset: 4px;
+
+  transition:
+    color 0.2s ease,
+    text-decoration-thickness 0.2s ease;
+}
+
+footer nav ul li a:hover {
+  color: #e0e0e0;
+
+  text-decoration-thickness: 2px;
+}
+
+footer nav ul li a:active {
+  color: #aaaaaa;
+
+  text-decoration-thickness: 3px;
+}
+
+.copy {
+  margin-top: 5px;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   IMPRESSUM + DATENSCHUTZ
+   ========================================================= */
+
+body.impressum .legal-main,
+body.datenschutz .legal-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 80px 40px;
+}
+
+/* Inhalt */
+body.impressum .legal-content,
+body.datenschutz .legal-content {
+  width: 100%;
+  max-width: 800px;
+
+  color: #ffffff;
+}
+
+/* Hauptüberschrift */
+body.impressum .legal-content h2,
+body.datenschutz .legal-content h2 {
+  margin-bottom: 40px;
+
+  color: #ffffff;
+
+  font-size: 2.5rem;
+}
+
+/* Zwischenüberschriften */
+body.impressum .legal-content h3,
+body.datenschutz .legal-content h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  color: #e6f7f7;
+
+  font-size: 1.2rem;
+}
+
+/* Absätze */
+body.impressum .legal-content p,
+body.datenschutz .legal-content p {
+  margin: 0 0 1rem;
+
+  color: rgba(230, 247, 247, 0.9);
+
+  line-height: 1.8;
+}
+
+/* Links */
+body.impressum .legal-content a,
+body.datenschutz .legal-content a {
+  color: var(--button-border-color);
+
+  transition: color 0.2s ease;
+}
+
+body.impressum .legal-content a:hover,
+body.datenschutz .legal-content a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   FOCUS / TASTATURBEDIENUNG
+   ========================================================= */
+
+/*
+   Sichtbarer Fokus für Menschen,
+   die mit der Tastatur navigieren.
+*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--button-border-color);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+/* =========================================================
+   TABLET - PROJEKTE
+   ========================================================= */
+
 @media (max-width: 1024px) {
+  /*
+     Drei Projektkarten werden zu zwei Spalten.
+  */
   body.projekte .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Smartphone */
+/* =========================================================
+   TABLET - ÜBER MICH + KONTAKT
+   ========================================================= */
+
+@media (max-width: 900px) {
+  /* -------------------------------------------------------
+     Über mich
+     ------------------------------------------------------- */
+
+  body.ueber-mich main {
+    flex-direction: column;
+
+    gap: 50px;
+
+    padding: 40px 24px;
+  }
+
+  body.ueber-mich .about-text {
+    flex: none;
+
+    max-width: 700px;
+  }
+
+  body.ueber-mich main figure {
+    flex: none;
+
+    width: 100%;
+  }
+
+  body.ueber-mich main figure img {
+    max-width: 280px;
+  }
+
+  /* -------------------------------------------------------
+     Kontakt
+     ------------------------------------------------------- */
+
+  body.kontakt .contact-grid {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+
+    max-width: 650px;
+
+    padding: 40px 24px;
+  }
+
+  .contact-left {
+    justify-content: center;
+  }
+
+  .placeholder-text {
+    max-width: 520px;
+  }
+
+  .contact-right {
+    justify-content: center;
+  }
+
+  /*
+     Vorname und Nachname nun untereinander.
+  */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   SMARTPHONE - HEADER + STARTSEITE + RECHTLICHE SEITEN
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* -------------------------------------------------------
+     Header
+     ------------------------------------------------------- */
+
+  header {
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+  }
+
+  .site-name {
+    margin-left: 0;
+
+    text-align: center;
+  }
+
+  .site-name a {
+    font-size: 2rem;
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  header nav ul {
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px 18px;
+  }
+
+  /* -------------------------------------------------------
+     Startseite
+     ------------------------------------------------------- */
+
+  body.home main {
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    padding: 40px 24px;
+  }
+
+  body.home .text-section {
+    flex: none;
+
+    width: 100%;
+    max-width: 700px;
+
+    align-items: center;
+
+    padding: 0;
+  }
+
+  /*
+     Auf kleinen Displays darf die Überschrift umbrechen,
+     damit sie nicht seitlich aus dem Bildschirm läuft.
+  */
+  body.home .title {
+    white-space: normal;
+
+    font-size: clamp(2rem, 8vw, 2.5rem);
+
+    text-align: center;
+  }
+
+  body.home .intro-text {
+    font-size: 1.3rem;
+
+    text-align: center;
+  }
+
+  body.home .running-text {
+    font-size: 1.1rem;
+
+    text-align: center;
+  }
+
+  /* Projekt-Button */
+  #projekte-button {
+    align-self: center;
+  }
+
+  /* Technologie-Badges */
+  body.home .tech-stack {
+    margin-top: 35px;
+  }
+
+  /* -------------------------------------------------------
+     Startseitenbild
+     ------------------------------------------------------- */
+
+  body.home main figure {
+    flex: none;
+
+    width: 100%;
+
+    justify-content: center;
+
+    padding-right: 0;
+  }
+
+  body.home main figure img {
+    width: min(280px, 100%);
+    min-width: 0;
+  }
+
+  /* -------------------------------------------------------
+     Impressum + Datenschutz
+     ------------------------------------------------------- */
+
+  body.impressum .legal-main,
+  body.datenschutz .legal-main {
+    padding: 50px 24px;
+  }
+
+  body.impressum .legal-content h2,
+  body.datenschutz .legal-content h2 {
+    font-size: 2rem;
+  }
+
+  /* -------------------------------------------------------
+     Footer
+     ------------------------------------------------------- */
+
+  footer nav ul {
+    flex-wrap: wrap;
+
+    padding-inline: 16px;
+  }
+}
+
+/* =========================================================
+   SMARTPHONE - PROJEKTE
+   ========================================================= */
+
 @media (max-width: 700px) {
   body.projekte main {
     padding: 40px 20px 60px;
@@ -586,6 +1429,9 @@ body.projekte .projects-more {
     margin-bottom: 35px;
   }
 
+  /*
+     Zwei Projektspalten werden zu einer Spalte.
+  */
   body.projekte .projects-grid {
     grid-template-columns: 1fr;
 
@@ -603,712 +1449,76 @@ body.projekte .projects-more {
   }
 }
 
-/* --------------- Ende Projekte --------------- */
+/* =========================================================
+   KLEINE SMARTPHONES
+   ========================================================= */
 
-/* ---------------   Ende Styling Badges    ---------------  */
-
-main figure {
-  flex-shrink: 0; /* Bildbereich wird nicht kleiner als gewünscht */
-  flex-basis: 40%; /* Bildbereich etwas kleiner machen */
-  display: flex; /* Bild zentriert im Bereich platzieren */
-  justify-content: flex-end; /* horizontal zentrieren */
-  align-items: center; /* vertikal zentrieren */
-  padding-right: 150px;
-}
-
-main figure img {
-  display: block; /* Bild als Blockelement */
-  width: 320px; /* Bild etwas kleiner als zuvor */
-  min-width: 320px; /* Mindestbreite für das Bild */
-  max-width: none; /* nicht größer als der Container */
-  object-fit: cover; /* Bild passend zuschneiden */
-  margin: 0; /* keine zusätzlichen Abstände */
-
-  border-radius: 48px; /* weich abgerundete Ecken statt Pillenform */
-  border-color: rgba(60, 84, 101, 0.68); /* dezenter blauer Rahmen */
-  border-width: 2px; /* etwas feinerer Rahmen */
-  border: 2px solid rgba(60, 84, 101, 0.68);
-  /*border-style: solid; /* durchgezogener Rahmen */
-  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25); /* dezentere Schattenwirkung */
-}
-
-main figcaption {
-  position: absolute; /* aus dem normalen Flow genommen */
-  left: -10000px; /* weit nach links verschoben */
-  width: 1px; /* sehr kleine Breite */
-  height: 1px; /* sehr kleine Höhe */
-  overflow: hidden; /* Inhalte nicht sichtbar machen */
-}
-
-main section button {
-  margin-top: 2rem; /* Abstand zum vorherigen Inhalt */
-  margin-inline: 0; /* keine seitlichen Abstände */
-  align-self: center; /* Button linksbündig unter dem Text blocken */
-}
-
-/* Responsive Design: Bei kleinen Bildschirmen (z.B. Mobil) vertikal stapeln */
-@media (max-width: 768px) {
-  main {
-    flex-direction: column; /* bei kleinen Bildschirmen vertikal stapeln */
-    text-align: center; /* Text zentrieren */
+@media (max-width: 480px) {
+  /* Name im Header etwas kleiner */
+  .site-name a {
+    font-size: 1.75rem;
   }
 
-  body.home main .hero-section {
-    align-items: center; /* Inhalte zentriert auf Mobilgeräten */
-    max-width: 100%; /* volle Breite nutzen */
+  /* Navigation kompakter */
+  header nav ul {
+    gap: 8px 14px;
   }
 
-  body.home main .hero-section .hero-title,
-  body.home main .hero-section p {
-    text-align: center; /* Überschrift und Text auf Mobilgeräten zentrieren */
+  header nav ul li a {
+    font-size: 0.95rem;
   }
 
-  body.home main .hero-section .hero-title {
-    font-size: 2.5rem; /* kleinere Überschrift auf kleinen Displays */
+  /* Startseite */
+  body.home main {
+    padding-inline: 18px;
   }
 
-  body.home main .hero-section p {
-    font-size: 1rem; /* kleinerer Fließtext auf mobilen Geräten */
+  body.home .title {
+    font-size: 2rem;
+  }
+
+  body.home .intro-text {
+    font-size: 1.15rem;
+  }
+
+  body.home .running-text {
+    font-size: 1rem;
+  }
+
+  /* Kontakt */
+  body.kontakt main {
+    padding-inline: 0;
+  }
+
+  body.kontakt .contact-grid {
+    padding-inline: 20px;
+  }
+
+  /* Rechtliche Seiten */
+  body.impressum .legal-main,
+  body.datenschutz .legal-main {
+    padding-inline: 20px;
   }
 }
 
-/* ---------------    Styling für den Footer    --------------- */
-footer {
-  background:
-    linear-gradient(#010a12e0, rgba(0, 0, 0, 0.08)),
-    url("assets/images/footer1.jpg"); /* Hintergrundbild im Footer */
-  background-size: cover; /* Bild passend über die Fläche legen */
-  background-position: center; /* Bild zentrieren */
-  background-repeat: no-repeat; /* Bild nicht wiederholen */
-  color: var(--button-bg-color); /* Textfarbe aus Variable */
-  display: flex; /* Footer-Inhalte flexibel anordnen */
-  flex-direction: column; /* vertikal anordnen */
-  align-items: center; /* Inhalte zentrieren */
-  text-align: center; /* Text zentriert */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* subtile Schattierung */
-}
-
-.footer-info {
-  padding: 20px; /* großzügiger Innenabstand im Footer-Textbereich */
-  color: white; /* weiße Schriftfarbe für bessere Lesbarkeit */
-}
-
-footer nav ul {
-  display: flex; /* Footer-Links in einer Reihe */
-  justify-content: center; /* zentriert anordnen */
-  gap: 20px; /* Abstand zwischen den Links */
-}
-
-footer nav ul li a {
-  color: white; /* Linkfarbe aus Variable */
-  text-decoration: underline; /* Unterstrich für Footer-Links */
-  text-decoration-color: white; /* Unterstrichfarbe weiß */
-  text-underline-offset: 4px; /* Unterstrich leicht versetzt */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Lesbarkeit verbessern */
-  font-size: 10px; /* kleine Schriftgröße für Footer-Links */
-  transition: all 0.2s ease; /* sanfter Hover-Effekt */
-}
-
-footer nav ul li a:hover {
-  color: #e0e0e0; /* hellere Farbe beim Hover */
-  text-decoration-thickness: 2px; /* etwas dickere Unterstreichung */
-}
-
-footer nav ul li a:active {
-  text-decoration-thickness: 3px; /* stärkerer Unterstrich beim Klick */
-  color: #aaaaaa; /* etwas dunkler beim Aktivieren */
-}
-
-.button-footer {
-  display: inline-block;
-  text-decoration: none;
-  margin-bottom: 20px;
-  padding: 12px 24px;
-  font-size: 15px;
-  border-radius: 999px;
-  background-color: #4fd1c49b;
-  color: #e6f7f7;
-  border: 1px solid white;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  letter-spacing: 0.02em;
-}
-
-.button-footer:hover {
-  background-color: rgba(0, 0, 0, 0.463); /* schwarze Füllung beim Hover */
-  transform: translateY(-2px); /* Button leicht nach oben bewegen */
-  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16); /* subtiler Glow-Effekt */
-}
-
-.button-footer:active {
-  transform: translateY(0) scale(0.98); /* beim Klick wieder zurück und leicht kleiner */
-}
-
-/* Styling für Buttons (Hauptstyling) */
-.button-main {
-  padding: var(--button-padding); /* Innenabstand aus Variable */
-  font-size: var(--button-font-size); /* Schriftgröße aus Variable */
-  border-radius: var(--button-border-radius); /* sehr weich abgerundete Ecken */
-  background-color: var(--button-bg-color); /* transparenter Hintergrund */
-  color: var(--button-color); /* helle Textfarbe */
-  border: 1px solid var(--button-border-color); /* dünner türkisfarbener Rand */
-  cursor: pointer; /* Mauszeiger als Button anzeigen */
-  transition: all 0.2s ease; /* sanfte Übergänge bei Hover/Active */
-  letter-spacing: 0.02em; /* etwas luftigerer Text */
-}
-
-/* ---------------    Styling für .footnote    --------------- */
-.footnote {
-  width: 100%; /* volle Breite der Fußzeile */
-  margin: 0; /* keine äußeren Abstände */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.8
-  ); /* dunkler Hintergrund für bessere Lesbarkeit */
-  color: white; /* weiße Textfarbe */
-  text-align: center; /* zentrierter Text */
-}
-
-.button-main:hover {
-  background-color: var(
-    --button-hover-bg
-  ); /* dezente türkisfarbene Füllung beim Hover */
-  transform: translateY(-2px); /* Button leicht nach oben bewegen */
-  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16); /* subtiler Glow-Effekt */
-}
-
-.button-main:active {
-  transform: translateY(0) scale(0.98); /* beim Klick wieder zurück und leicht kleiner */
-}
-
-.copy {
-  margin-top: 5px; /* kleiner Abstand nach oben */
-  font-size: 10px; /* kleine Schriftgröße für Copyright */
-}
-
-/* ---------------    Styling für Über mich    --------------- */
-
-/* =====================================================
-   ÜBER MICH
-   ===================================================== */
-
-/* Gesamtes Layout der Über-mich-Seite */
-body.ueber-mich main {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: clamp(50px, 6vw, 100px);
-
-  padding: 60px clamp(40px, 6vw, 100px);
-}
-
-/* =====================================================
-   TEXTBEREICH
-   ===================================================== */
-
-body.ueber-mich main .about-text {
-  /* Text bekommt etwas mehr Platz als das Bild */
-  flex: 1 1 60%;
-
-  width: 100%;
-  max-width: 750px;
-
-  /* überschreibt dein allgemeines
-     main section { max-width: 50%; } */
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-  justify-content: center;
-}
-
-/* Überschrift */
-body.ueber-mich .about-text h2 {
-  width: 100%;
-
-  text-align: left;
-
-  margin-bottom: 30px;
-
-  font-size: 2rem;
-}
-
-/* Einzelne Textabsätze */
-body.ueber-mich .about-text p {
-  width: 100%;
-
-  margin: 0 0 1.5rem 0;
-
-  text-align: left;
-
-  line-height: 1.7;
-}
-
-/* Letzter Absatz braucht unten keinen zusätzlichen Abstand */
-body.ueber-mich .about-text p:last-of-type {
-  margin-bottom: 0;
-}
-
-/* =====================================================
-   KONTAKT-BUTTON
-   ===================================================== */
-
-body.ueber-mich .about-text .button-main {
-  align-self: center;
-
-  margin-top: 2rem;
-}
-
-/* =====================================================
-   BILDBEREICH
-   ===================================================== */
-
-body.ueber-mich main figure {
-  flex: 0 1 35%;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  /* überschreibt dein allgemeines padding-right: 150px */
-  padding-right: 0;
-}
-
-/* Bild */
-body.ueber-mich main figure img {
-  display: block;
-
-  width: 100%;
-  max-width: 320px;
-  min-width: 0;
-
-  height: auto;
-
-  object-fit: cover;
-
-  margin: 0;
-
-  /* wenn du es weiterhin eckig möchtest */
-  border-radius: 0;
-
-  border: 2px solid rgba(60, 84, 101, 0.68);
-
-  box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
-}
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-
-@media (max-width: 900px) {
-  body.ueber-mich main {
-    flex-direction: column;
-
-    gap: 50px;
-
-    padding: 40px 24px;
-  }
-
-  body.ueber-mich main .about-text {
-    max-width: 700px;
-
-    flex: none;
-  }
-
-  body.ueber-mich main figure {
-    width: 100%;
-
-    flex: none;
-  }
-
-  body.ueber-mich main figure img {
-    max-width: 280px;
-  }
-}
-/* --------------- Kontaktformular Styles --------------- */
-
-/* =====================================================
-   GRUNDLAYOUT DER KONTAKTSEITE
-   ===================================================== */
-
-body.kontakt main .contact-grid {
-  width: 100%;
-  max-width: 1200px;
-
-  flex: none;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  align-items: start;
-
-  /* Abstand zwischen Text und Formular */
-  gap: clamp(60px, 8vw, 140px);
-
-  /* gesamte Contact-Section mittig auf der Seite */
-  margin: 0 auto;
-
-  padding: 60px 40px;
-}
-
-/* =====================================================
-   LINKE SEITE
-   ===================================================== */
-
-.contact-left {
-  display: flex;
-
-  justify-content: flex-start;
-  align-items: center;
-
-  color: white;
-}
-
-/* Textbereich begrenzen */
-.placeholder-text {
-  width: 100%;
-  max-width: 420px;
-}
-
-/* Überschrift */
-.contact-left .placeholder-text h2 {
-  font-size: 2rem;
-
-  margin-bottom: 12px;
-
-  color: #e6f7f7;
-}
-
-/* Fließtext */
-.contact-left .placeholder-text p {
-  color: rgba(230, 247, 247, 0.9);
-
-  line-height: 1.5;
-
-  text-align: left;
-
-  margin: 0;
-}
-
-/* =====================================================
-   RECHTE SEITE
-   ===================================================== */
-
-.contact-right {
-  display: flex;
-
-  /* Formular innerhalb der rechten Hälfte zentrieren */
-  justify-content: center;
-  align-items: center;
-}
-
-/* =====================================================
-   FORMULAR
-   ===================================================== */
-
-.contact-form {
-  width: 100%;
-  max-width: 520px;
-
-  display: flex;
-  flex-direction: column;
-
-  /* Formularfelder über komplette Formularbreite */
-  align-items: stretch;
-}
-
-/* =====================================================
-   VORNAME + NACHNAME
-   ===================================================== */
-
-.form-row {
-  width: 100%;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 12px;
-}
-
-/* Beide Felder gleich breit */
-.form-row .form-field {
-  width: 100%;
-}
-
-/* =====================================================
-   ALLGEMEINE FORM-FELDER
-   ===================================================== */
-
-.contact-form .form-field {
-  width: 100%;
-
-  max-width: none;
-}
-
-.form-field {
-  position: relative;
-
-  margin-bottom: 16px;
-}
-
-/* =====================================================
-   INPUT + TEXTAREA
-   ===================================================== */
-
-.form-field input,
-.form-field textarea {
-  width: 100%;
-
-  padding: 16px 12px;
-
-  border-radius: 8px;
-
-  border: 1px solid rgba(0, 0, 0, 0.12);
-
-  background: #ffffff;
-
-  color: #0b0b0b;
-
-  font-size: 1rem;
-
-  /*
-     Sorgt dafür, dass Border und Glow
-     weich ein- und ausgeblendet werden
-  */
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-/* Textarea darf nur vertikal verändert werden */
-.form-field textarea {
-  resize: vertical;
-}
-
-/* =====================================================
-   HOVER-EFFEKT
-   ===================================================== */
-
-.form-field input:hover,
-.form-field textarea:hover {
-  /* gleiche Türkisfarbe wie beim Button */
-  border-color: var(--button-border-color);
-
-  /*
-     Leichter türkisfarbener Glow
-  */
-  box-shadow:
-    0 0 6px rgba(79, 209, 197, 0.45),
-    0 0 14px rgba(79, 209, 197, 0.22);
-}
-
-/* =====================================================
-   FOCUS-EFFEKT
-   Sobald ein Feld angeklickt / ausgewählt wird
-   ===================================================== */
-
-.form-field input:focus,
-.form-field textarea:focus {
-  /* normalen Browser-Rahmen entfernen */
-  outline: none;
-
-  border-color: var(--button-border-color);
-
-  /*
-     Focus etwas stärker als Hover
-  */
-  box-shadow:
-    0 0 8px rgba(79, 209, 197, 0.55),
-    0 0 18px rgba(79, 209, 197, 0.28);
-}
-
-/* =====================================================
-   LABELS
-   Normal: links im Eingabefeld
-   ===================================================== */
-
-.form-field label {
-  position: absolute;
-
-  /* links statt rechts */
-  left: 12px;
-  right: auto;
-
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  color: #6b6b6b;
-
-  pointer-events: none;
-
-  /* wichtig für Floating Label auf dem Rand */
-  background: #ffffff;
-
-  padding: 0 6px;
-
-  text-align: left;
-
-  width: auto;
-
-  transition:
-    transform 0.18s ease,
-    font-size 0.18s ease,
-    top 0.18s ease,
-    color 0.18s ease,
-    left 0.18s ease;
-}
-
-/* =====================================================
-   FLOATING LABEL
-   Beim Anklicken nach oben links auf den Rand
-   ===================================================== */
-
-.form-field input:focus + label,
-.form-field input:not(:placeholder-shown) + label,
-.form-field textarea:focus + label,
-.form-field textarea:not(:placeholder-shown) + label {
-  /* Label auf oberen Rand setzen */
-  top: 0;
-  left: 12px;
-
-  transform: translateY(-50%);
-
-  font-size: 0.82rem;
-
-  color: var(--button-border-color);
-
-  /* weißer Hintergrund über dem Border */
-  background: #ffffff;
-
-  /* etwas mehr Platz um den Text */
-  padding: 1px 7px;
-
-  /* weiche Ecken */
-  border-radius: 6px;
-}
-
-/* =====================================================
-   SENDEN BUTTON
-   ===================================================== */
-
-.contact-form .button-main {
-  margin-top: 8px;
-
-  /* Button mittig unter Formular */
-  align-self: center;
-}
-
-/* =====================================================
-   RESPONSIVE DESIGN
-   ===================================================== */
-
-@media (max-width: 900px) {
-  body.kontakt main .contact-grid {
-    /* Text und Formular untereinander */
-    grid-template-columns: 1fr;
-
-    gap: 50px;
-
-    max-width: 650px;
-
-    padding: 40px 24px;
-  }
-
-  /* Textblock auf kleineren Displays mittiger platzieren */
-  .contact-left {
-    justify-content: center;
-  }
-
-  .placeholder-text {
-    max-width: 520px;
-  }
-
-  /* Formular mittig */
-  .contact-right {
-    justify-content: center;
-  }
-
-  /* Vorname und Nachname untereinander */
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --------------- Ende Kontaktformular Styles --------------- */
-/* Ende Kontaktformular Styles */
-
-/* =====================================================
-   IMPRESSUM / RECHTLICHE SEITEN
-   ===================================================== */
-
-body.impressum .legal-main {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  min-height: 100vh;
-
-  padding: 80px 40px;
-}
-
-body.impressum .legal-content {
-  width: 100%;
-  max-width: 800px;
-
-  display: block;
-
-  color: white;
-}
-
-body.impressum .legal-content h2 {
-  margin-bottom: 40px;
-
-  font-size: 2.5rem;
-
-  color: #ffffff;
-}
-
-body.impressum .legal-content h3 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-
-  font-size: 1.2rem;
-
-  color: #e6f7f7;
-}
-
-body.impressum .legal-content p {
-  margin: 0;
-
-  line-height: 1.8;
-
-  color: rgba(230, 247, 247, 0.9);
-}
-
-body.impressum .legal-content a {
-  color: var(--button-border-color);
-
-  text-decoration: none;
-
-  transition: color 0.2s ease;
-}
-
-body.impressum .legal-content a:hover {
-  text-decoration: underline;
-}
-
-/* Smartphone */
-@media (max-width: 768px) {
-  body.impressum .legal-main {
-    padding: 50px 24px;
+/* =========================================================
+   BEWEGUNGEN REDUZIEREN
+   ========================================================= */
+
+/*
+   Berücksichtigt Nutzer,
+   die im Betriebssystem reduzierte Animationen
+   eingestellt haben.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+    scroll-behavior: auto !important;
   }
 }
