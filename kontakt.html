@@ -38,30 +38,56 @@
             </div>
 
             <div class="contact-right">
-                <form class="contact-form" action="#" method="post" novalidate>
+                <form class="contact-form" id="contact-form">
+
                     <div class="form-row">
+
                         <div class="form-field">
-                            <input id="vorname" name="vorname" type="text" required placeholder=" ">
+                            <input id="vorname" name="vorname" type="text" autocomplete="given-name" required
+                                placeholder=" ">
                             <label for="vorname">Vorname</label>
                         </div>
 
+
                         <div class="form-field">
-                            <input id="nachname" name="nachname" type="text" required placeholder=" ">
+                            <input id="nachname" name="nachname" type="text" autocomplete="family-name" required
+                                placeholder=" ">
                             <label for="nachname">Nachname</label>
                         </div>
+
                     </div>
 
+
                     <div class="form-field">
-                        <input id="email" name="email" type="email" required placeholder=" ">
+
+                        <input id="email" name="email" type="email" autocomplete="email" required placeholder=" ">
+
                         <label for="email">E-Mail</label>
+
                     </div>
+
 
                     <div class="form-field">
-                        <textarea id="nachricht" name="nachricht" rows="6" placeholder=" "></textarea>
+
+                        <textarea id="nachricht" name="nachricht" rows="6" required placeholder=" "></textarea>
+
                         <label for="nachricht">Nachricht</label>
+
                     </div>
 
-                    <button class="button-main" type="submit">Senden</button>
+
+                    <button class="button-main" type="submit">
+                        Senden
+                    </button>
+
+
+                    <!--
+        Hier zeigen wir später an:
+        "Nachricht erfolgreich gesendet"
+        oder eine Fehlermeldung.
+    -->
+                    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
                 </form>
             </div>
         </section>

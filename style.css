@@ -1274,6 +1274,38 @@ textarea:focus-visible {
 }
 
 /* =========================================================
+   KONTAKTFORMULAR - STATUSMELDUNG
+   ========================================================= */
+
+.form-status {
+  min-height: 24px;
+
+  margin-top: 18px;
+
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* Nachricht erfolgreich gesendet */
+.form-status.success {
+  color: #4fd1c5;
+}
+
+/* Fehler beim Senden */
+.form-status.error {
+  color: #ff8a8a;
+}
+
+/* Button während des Sendens */
+.contact-form .button-main:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* =========================================================
    SMARTPHONE - HEADER + STARTSEITE + RECHTLICHE SEITEN
    ========================================================= */
 
