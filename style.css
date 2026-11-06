@@ -1,22 +1,9 @@
-/* =========================================================
-   GOOGLE FONTS
-   ========================================================= */
+/* Portfolio: gemeinsame Styles und Seitendesigns */
 
-/*
-   Manrope = Hauptschrift
-   VT323    = aktuell als zusätzliche Schrift geladen
-              und kann später z. B. für Retro-Akzente genutzt werden
-*/
+/* ===== SCHRIFTARTEN ===== */
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=VT323&display=swap");
 
-/* =========================================================
-   RESET / GRUNDEINSTELLUNGEN
-   ========================================================= */
-
-/*
-   Entfernt Browser-Standardabstände
-   und sorgt für berechenbare Größen.
-*/
+/* ===== BASIS UND GLOBALE ELEMENTE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -30,74 +17,85 @@ html {
 
 body {
   min-height: 100%;
-
   font-family: "Manrope", sans-serif;
   line-height: 1.6;
-
   color: #333333;
   background-color: #ffffff;
 }
 
-/* Links standardmäßig ohne Unterstreichung */
 a {
   text-decoration: none;
 }
 
-/* Listen ohne Standard-Aufzählungszeichen */
 ul,
 ol {
   list-style: none;
 }
 
-/* Bilder niemals größer als ihr Container */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/*
-   Formularelemente übernehmen die Schriftart
-   der restlichen Website.
-*/
 button,
 input,
 textarea {
   font: inherit;
 }
 
-/* =========================================================
-   CSS-VARIABLEN
-   ========================================================= */
-
 :root {
   --button-padding: 12px 24px;
   --button-font-size: 15px;
   --button-border-radius: 999px;
-
   --button-bg-color: transparent;
   --button-color: #e6f7f7;
-
   --button-border-color: #4fd1c5;
   --button-hover-bg: rgba(79, 209, 197, 0.18);
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+main {
+  min-height: 100vh;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #0f3754 0%, #000000 50%, #010a12 90%);
+}
 
+/* ===== GEMEINSAMER HAUPTBUTTON ===== */
+.button-main {
+  display: inline-block;
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  letter-spacing: 0.02em;
+  color: var(--button-color);
+  background-color: var(--button-bg-color);
+  border: 1px solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button-main:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16);
+}
+
+.button-main:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ===== HEADER UND NAVIGATION ===== */
+
+/* Kopfbereich */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 20px 20px 0;
-
   background-color: #0f3754;
 }
-
-/* ---------------------------------------------------------
-   Name / Logo
-   --------------------------------------------------------- */
 
 .site-name {
   margin-left: 3rem;
@@ -105,11 +103,9 @@ header {
 
 .site-name a {
   color: #ffffff;
-
   font-size: 2.4rem;
   font-weight: 400;
   letter-spacing: 0.04em;
-
   transition: color 0.2s ease;
 }
 
@@ -117,10 +113,7 @@ header {
   color: #e0e0e0;
 }
 
-/* ---------------------------------------------------------
-   Hauptnavigation
-   --------------------------------------------------------- */
-
+/* Navigation */
 header nav ul {
   display: flex;
   gap: 20px;
@@ -128,11 +121,9 @@ header nav ul {
 
 header nav ul li a {
   color: #ffffff;
-
   text-decoration: none;
   text-decoration-color: #ffffff;
   text-underline-offset: 4px;
-
   transition:
     color 0.2s ease,
     text-decoration-thickness 0.2s ease;
@@ -140,20 +131,15 @@ header nav ul li a {
 
 header nav ul li a:hover {
   color: #e0e0e0;
-
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
 header nav ul li a:active {
   color: #cccccc;
-
   text-decoration-thickness: 3px;
 }
 
-/*
-   Aktuelle Seite in der Navigation markieren.
-*/
 body.home .nav-home,
 body.projekte .nav-projekte,
 body.ueber-mich .nav-ueber-mich,
@@ -162,45 +148,25 @@ body.kontakt .nav-kontakt {
   text-decoration-thickness: 2px;
 }
 
-/* =========================================================
-   ALLGEMEINER MAIN-BEREICH
-   ========================================================= */
+/* ===== STARTSEITE ===== */
 
-main {
-  min-height: 100vh;
-
-  color: #ffffff;
-
-  background: linear-gradient(to bottom, #0f3754 0%, #000000 50%, #010a12 90%);
-}
-
-/* =========================================================
-   STARTSEITE
-   ========================================================= */
-
+/* Layout */
 body.home main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 20px;
 }
 
-/* ---------------------------------------------------------
-   Linker Textbereich
-   --------------------------------------------------------- */
-
+/* Textbereich */
 body.home .text-section {
   flex: 1 1 55%;
-
   width: 100%;
   max-width: 50%;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
   padding: 20px;
 }
 
@@ -210,291 +176,169 @@ body.home .text-section p {
   text-align: left;
 }
 
-/* Türkise Hervorhebung */
 .color-word {
   color: #7fd1ff;
 }
 
-/* Hauptüberschrift */
 .title {
   font-size: clamp(2rem, 3.2vw, 3rem);
   line-height: 1.2;
-
-  /*
-     Auf größeren Displays bleibt die Überschrift
-     wie gewünscht in einer Zeile.
-  */
   white-space: nowrap;
 }
 
-/* Untertitel */
 .intro-text {
   font-size: 1.6rem;
 }
 
-/* Beschreibung */
 .running-text {
   font-size: 1.3rem;
 }
 
-/* ---------------------------------------------------------
-   Projekt-Button auf der Startseite
-   --------------------------------------------------------- */
-
+/* Projektlink */
 #projekte-button {
   display: inline-block;
-
   align-self: center;
-
   margin-top: 2rem;
 }
 
-/* =========================================================
-   TECHNOLOGIE-BADGES
-   ========================================================= */
-
+/* Technologien */
 .tech-stack {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
   gap: 12px;
-
   width: 100%;
-
   margin: 50px auto 0;
   padding: 0;
 }
 
 .badge {
   padding: 6px 14px;
-
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
-
   font-family: sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
-
   transition: transform 0.2s ease;
 }
 
-/*
-   Dezenter Effekt.
-   Die Badges sind keine Links,
-   bewegen sich aber leicht beim Überfahren.
-*/
 .badge:hover {
   transform: translateY(-2px);
 }
 
-/* HTML */
 .tech-html {
   color: #e34f26;
   background-color: rgba(227, 79, 38, 0.1);
 }
 
-/* CSS */
 .tech-css {
   color: #1572b6;
   background-color: rgba(21, 114, 182, 0.1);
 }
 
-/* JavaScript */
 .tech-js {
   color: #b89700;
   background-color: rgba(247, 223, 30, 0.15);
 }
 
-/* Vue */
 .tech-vue {
   color: #41b883;
   background-color: rgba(65, 184, 131, 0.1);
 }
 
-/* Java */
 .tech-java {
   color: #007396;
   background-color: rgba(0, 115, 150, 0.1);
 }
 
-/* =========================================================
-   STARTSEITE - PROFILBILD
-   ========================================================= */
-
+/* Profilbild */
 body.home main figure {
   flex: 0 1 40%;
-
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
   padding-right: 150px;
 }
 
 body.home main figure img {
   display: block;
-
   width: 320px;
   min-width: 320px;
-
   object-fit: cover;
-
   border: 2px solid rgba(60, 84, 101, 0.68);
   border-radius: 48px;
-
   box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
 }
 
-/* ---------------------------------------------------------
-   Figcaption nur für Screenreader
-   --------------------------------------------------------- */
-
 main figcaption {
   position: absolute;
-
   width: 1px;
   height: 1px;
-
   padding: 0;
   margin: -1px;
-
   overflow: hidden;
-
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-
   border: 0;
 }
 
-/* =========================================================
-   ALLGEMEINE BUTTONS
-   ========================================================= */
+/* ===== PROJEKTE ===== */
 
-.button-main {
-  display: inline-block;
-
-  padding: var(--button-padding);
-
-  font-size: var(--button-font-size);
-  letter-spacing: 0.02em;
-
-  color: var(--button-color);
-  background-color: var(--button-bg-color);
-
-  border: 1px solid var(--button-border-color);
-  border-radius: var(--button-border-radius);
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.button-main:hover {
-  background-color: var(--button-hover-bg);
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16);
-}
-
-.button-main:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* =========================================================
-   PROJEKTE
-   ========================================================= */
-
+/* Seitenlayout und Einleitung */
 body.projekte main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
   padding: 60px clamp(24px, 5vw, 80px) 80px;
 }
-
-/* ---------------------------------------------------------
-   Einleitung
-   --------------------------------------------------------- */
 
 body.projekte .projects-intro {
   width: 100%;
   max-width: 800px;
-
   margin: 0 auto 50px;
-
   text-align: center;
 }
 
 body.projekte .projects-intro h1 {
   width: 100%;
-
   margin-bottom: 14px;
-
   color: #ffffff;
-
   font-size: clamp(2.2rem, 4vw, 3rem);
   line-height: 1.2;
-
   text-align: center;
 }
 
 body.projekte .projects-intro p {
   width: 100%;
-
   color: rgba(230, 247, 247, 0.85);
-
   font-size: 1.05rem;
   line-height: 1.7;
-
   text-align: center;
 }
 
-/* ---------------------------------------------------------
-   Projekt-Grid
-   --------------------------------------------------------- */
-
+/* Kartenraster */
 body.projekte .projects-grid {
   width: 100%;
   max-width: 1200px;
-
   display: grid;
-
   grid-template-columns: repeat(3, minmax(0, 1fr));
-
   gap: 24px;
-
   align-items: stretch;
-
   margin: 0 auto 45px;
 }
 
-/* ---------------------------------------------------------
-   Einzelne Projektkarte
-   --------------------------------------------------------- */
-
+/* Projektkarten */
 .project-card {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   overflow: hidden;
-
   color: #ffffff;
-
   background-color: rgba(15, 55, 84, 0.38);
-
   border: 1px solid rgba(79, 209, 197, 0.18);
   border-radius: 16px;
-
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -503,87 +347,62 @@ body.projekte .projects-grid {
 
 .project-card:hover {
   transform: translateY(-6px);
-
   border-color: rgba(79, 209, 197, 0.65);
-
   box-shadow:
     0 15px 35px rgba(0, 0, 0, 0.35),
     0 0 18px rgba(79, 209, 197, 0.13);
 }
 
-/* Projektbild */
+/* Projektbilder */
 .project-card img {
   display: block;
-
   width: 100%;
   height: auto;
-
   aspect-ratio: 16 / 10;
-
   object-fit: cover;
-
   border-bottom: 1px solid rgba(79, 209, 197, 0.15);
 }
 
-/* Vorschau der Android-App */
 .app-preview {
   width: 100%;
   aspect-ratio: 16 / 10;
-
   background-image: url("assets/images/screenshot_einkaufsapp.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: auto 260%;
-  background-color: #1c2a2a; /*#0f3754*/
-
+  background-color: #0f3754;
   border-bottom: 1px solid rgba(79, 209, 197, 0.15);
 }
 
-/* ---------------------------------------------------------
-   Inhalt der Karte
-   --------------------------------------------------------- */
-
+/* Karteninhalt */
 .card-body {
   flex: 1;
-
   display: flex;
   flex-direction: column;
-
   gap: 10px;
-
   padding: 22px;
 }
 
 .card-body h3 {
   margin: 0;
-
   color: #ffffff;
-
   font-size: 1.25rem;
   font-weight: 600;
 }
 
 .card-body p {
   flex: 1;
-
   margin: 0;
-
   color: rgba(230, 247, 247, 0.8);
-
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* ---------------------------------------------------------
-   Projekt-Buttons
-   --------------------------------------------------------- */
-
+/* Kartenbuttons */
 .card-actions {
   display: flex;
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin-top: 16px;
 }
 
@@ -591,16 +410,11 @@ body.projekte .projects-grid {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 9px 18px;
-
   border-radius: 999px;
-
   font-size: 0.9rem;
   font-weight: 500;
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
@@ -608,50 +422,36 @@ body.projekte .projects-grid {
     box-shadow 0.2s ease;
 }
 
-/* Projekt ansehen */
 .btn-outline {
   color: var(--button-border-color);
-
   background-color: transparent;
-
   border: 1px solid var(--button-border-color);
 }
 
 .btn-outline:hover {
   background-color: var(--button-hover-bg);
-
   transform: translateY(-2px);
-
   box-shadow: 0 0 10px rgba(79, 209, 197, 0.25);
 }
 
-/* Quellcode */
 .btn-primary {
   color: #071a1a;
-
   background-color: var(--button-border-color);
-
   border: 1px solid var(--button-border-color);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-
   box-shadow: 0 0 12px rgba(79, 209, 197, 0.4);
 }
 
-/* ---------------------------------------------------------
-   GitHub-Link unter den Projekten
-   --------------------------------------------------------- */
-
+/* GitHub-Übersicht */
 body.projekte .projects-more {
   width: 100%;
   max-width: 1200px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin: 5px auto 0;
 }
 
@@ -659,18 +459,12 @@ body.projekte .projects-more {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 11px 22px;
-
   color: #e6f7f7;
-
   background-color: transparent;
-
   border: 1px solid var(--button-border-color);
   border-radius: 999px;
-
   font-weight: 500;
-
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
@@ -679,36 +473,26 @@ body.projekte .projects-more {
 
 .btn-github:hover {
   background-color: var(--button-hover-bg);
-
   transform: translateY(-2px);
-
   box-shadow: 0 0 12px rgba(79, 209, 197, 0.25);
 }
 
-/* =========================================================
-   ÜBER MICH
-   ========================================================= */
+/* ===== ÜBER MICH ===== */
 
+/* Seitenlayout */
 body.ueber-mich main {
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: clamp(50px, 6vw, 100px);
-
   padding: 60px clamp(40px, 6vw, 100px);
 }
 
-/* ---------------------------------------------------------
-   Textbereich
-   --------------------------------------------------------- */
-
+/* Vorstellungstext */
 body.ueber-mich .about-text {
   flex: 1 1 60%;
-
   width: 100%;
   max-width: 750px;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -717,21 +501,15 @@ body.ueber-mich .about-text {
 
 body.ueber-mich .about-text h2 {
   width: 100%;
-
   margin-bottom: 30px;
-
   font-size: 2rem;
-
   text-align: left;
 }
 
 body.ueber-mich .about-text p {
   width: 100%;
-
   margin: 0 0 1.5rem;
-
   line-height: 1.7;
-
   text-align: left;
 }
 
@@ -739,13 +517,9 @@ body.ueber-mich .about-text p:last-of-type {
   margin-bottom: 0;
 }
 
-/* ---------------------------------------------------------
-   Bild
-   --------------------------------------------------------- */
-
+/* Bild */
 body.ueber-mich main figure {
   flex: 0 1 35%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -753,64 +527,42 @@ body.ueber-mich main figure {
 
 body.ueber-mich main figure img {
   display: block;
-
   width: 100%;
   max-width: 320px;
   min-width: 0;
-
   height: auto;
-
   object-fit: cover;
-
   border: 2px solid rgba(60, 84, 101, 0.68);
   border-radius: 0;
-
   box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
 }
 
-/* =========================================================
-   KONTAKTSEITE
-   ========================================================= */
+/* ===== KONTAKT ===== */
 
+/* Seitenlayout */
 body.kontakt main {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 20px;
 }
-
-/* ---------------------------------------------------------
-   Zweispaltiges Layout
-   --------------------------------------------------------- */
 
 body.kontakt .contact-grid {
   width: 100%;
   max-width: 1200px;
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   align-items: start;
-
   gap: clamp(60px, 8vw, 140px);
-
   margin: 0 auto;
-
   padding: 60px 40px;
 }
 
-/* ---------------------------------------------------------
-   Linker Kontakttext
-   --------------------------------------------------------- */
-
+/* Einleitung */
 .contact-left {
   display: flex;
-
   justify-content: flex-start;
   align-items: center;
-
   color: #ffffff;
 }
 
@@ -821,29 +573,20 @@ body.kontakt .contact-grid {
 
 .contact-left .placeholder-text h2 {
   margin-bottom: 12px;
-
   color: #e6f7f7;
-
   font-size: 2rem;
 }
 
 .contact-left .placeholder-text p {
   margin: 0;
-
   color: rgba(230, 247, 247, 0.9);
-
   line-height: 1.5;
-
   text-align: left;
 }
 
-/* ---------------------------------------------------------
-   Rechte Seite / Formular
-   --------------------------------------------------------- */
-
+/* Kontaktformular */
 .contact-right {
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
@@ -851,21 +594,15 @@ body.kontakt .contact-grid {
 .contact-form {
   width: 100%;
   max-width: 520px;
-
   display: flex;
   flex-direction: column;
-
   align-items: stretch;
 }
 
-/* Vorname + Nachname nebeneinander */
 .form-row {
   width: 100%;
-
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 12px;
 }
 
@@ -873,89 +610,63 @@ body.kontakt .contact-grid {
   width: 100%;
 }
 
-/* ---------------------------------------------------------
-   Formularfelder
-   --------------------------------------------------------- */
-
 .contact-form .form-field {
   width: 100%;
 }
 
+/* Formularfelder */
 .form-field {
   position: relative;
-
   margin-bottom: 16px;
 }
 
 .form-field input,
 .form-field textarea {
   width: 100%;
-
   padding: 16px 12px;
-
   color: #0b0b0b;
   background-color: #ffffff;
-
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 8px;
-
   font-size: 1rem;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-/* Textarea nur vertikal vergrößerbar */
 .form-field textarea {
   resize: vertical;
 }
 
-/* Hover */
 .form-field input:hover,
 .form-field textarea:hover {
   border-color: var(--button-border-color);
-
   box-shadow:
     0 0 6px rgba(79, 209, 197, 0.45),
     0 0 14px rgba(79, 209, 197, 0.22);
 }
 
-/* Focus */
 .form-field input:focus,
 .form-field textarea:focus {
   outline: none;
-
   border-color: var(--button-border-color);
-
   box-shadow:
     0 0 8px rgba(79, 209, 197, 0.55),
     0 0 18px rgba(79, 209, 197, 0.28);
 }
 
-/* ---------------------------------------------------------
-   Floating Labels
-   --------------------------------------------------------- */
-
+/* Floating Labels */
 .form-field label {
   position: absolute;
-
   top: 50%;
   left: 12px;
-
   width: auto;
-
   padding: 0 6px;
-
   color: #6b6b6b;
   background-color: #ffffff;
-
   text-align: left;
-
   pointer-events: none;
-
   transform: translateY(-50%);
-
   transition:
     transform 0.18s ease,
     font-size 0.18s ease,
@@ -964,91 +675,82 @@ body.kontakt .contact-grid {
     left 0.18s ease;
 }
 
-/*
-   Label bewegt sich nach oben,
-   wenn das Feld aktiv oder bereits gefüllt ist.
-*/
 .form-field input:focus + label,
 .form-field input:not(:placeholder-shown) + label,
 .form-field textarea:focus + label,
 .form-field textarea:not(:placeholder-shown) + label {
   top: 0;
   left: 12px;
-
   padding: 1px 7px;
-
   color: var(--button-border-color);
   background-color: #ffffff;
-
   border-radius: 6px;
-
   font-size: 0.82rem;
-
   transform: translateY(-50%);
 }
 
-/* Senden-Button */
+/* Senden und Rückmeldung */
 .contact-form .button-main {
   align-self: center;
-
   margin-top: 8px;
 }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+.form-status {
+  min-height: 24px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  text-align: center;
+}
 
+.form-status.success {
+  color: #4fd1c5;
+}
+
+.form-status.error {
+  color: #ff8a8a;
+}
+
+.contact-form .button-main:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== FOOTER ===== */
+
+/* Layout und Hintergrund */
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   color: #ffffff;
-
   text-align: center;
-
   background:
     linear-gradient(#010a12e0, rgba(0, 0, 0, 0.08)),
     url("assets/images/footer1.jpg");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* ---------------------------------------------------------
-   Footer-Text
-   --------------------------------------------------------- */
-
 .footer-info {
   padding: 20px;
-
   color: #ffffff;
 }
 
-/* ---------------------------------------------------------
-   Kontakt-Button im Footer
-   --------------------------------------------------------- */
-
+/* Kontaktbutton */
 .button-footer {
   display: inline-block;
-
   margin-bottom: 20px;
   padding: 12px 24px;
-
   color: #e6f7f7;
   background-color: #4fd1c49b;
-
   border: 1px solid #ffffff;
   border-radius: 999px;
-
   font-size: 15px;
   letter-spacing: 0.02em;
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
@@ -1057,9 +759,7 @@ footer {
 
 .button-footer:hover {
   background-color: rgba(0, 0, 0, 0.463);
-
   transform: translateY(-2px);
-
   box-shadow: 0 4px 10px rgba(79, 209, 197, 0.16);
 }
 
@@ -1067,37 +767,27 @@ footer {
   transform: translateY(0) scale(0.98);
 }
 
-/* ---------------------------------------------------------
-   Unterer Footer
-   --------------------------------------------------------- */
-
+/* Footer-Navigation und Copyright */
 .footnote {
   width: 100%;
-
   margin: 0;
-
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.8);
-
   text-align: center;
 }
 
 footer nav ul {
   display: flex;
   justify-content: center;
-
   gap: 20px;
 }
 
 footer nav ul li a {
   color: #ffffff;
-
   font-size: 10px;
-
   text-decoration: underline;
   text-decoration-color: #ffffff;
   text-underline-offset: 4px;
-
   transition:
     color 0.2s ease,
     text-decoration-thickness 0.2s ease;
@@ -1105,80 +795,60 @@ footer nav ul li a {
 
 footer nav ul li a:hover {
   color: #e0e0e0;
-
   text-decoration-thickness: 2px;
 }
 
 footer nav ul li a:active {
   color: #aaaaaa;
-
   text-decoration-thickness: 3px;
 }
 
 .copy {
   margin-top: 5px;
-
   font-size: 10px;
 }
 
-/* =========================================================
-   IMPRESSUM + DATENSCHUTZ
-   ========================================================= */
-
+/* ===== IMPRESSUM UND DATENSCHUTZ ===== */
 body.impressum .legal-main,
 body.datenschutz .legal-main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   padding: 80px 40px;
 }
 
-/* Inhalt */
 body.impressum .legal-content,
 body.datenschutz .legal-content {
   width: 100%;
   max-width: 800px;
-
   color: #ffffff;
 }
 
-/* Hauptüberschrift */
 body.impressum .legal-content h2,
 body.datenschutz .legal-content h2 {
   margin-bottom: 40px;
-
   color: #ffffff;
-
   font-size: 2.5rem;
 }
 
-/* Zwischenüberschriften */
 body.impressum .legal-content h3,
 body.datenschutz .legal-content h3 {
   margin-top: 30px;
   margin-bottom: 10px;
-
   color: #e6f7f7;
-
   font-size: 1.2rem;
 }
 
-/* Absätze */
 body.impressum .legal-content p,
 body.datenschutz .legal-content p {
   margin: 0 0 1rem;
-
   color: rgba(230, 247, 247, 0.9);
-
   line-height: 1.8;
 }
 
-/* Links */
 body.impressum .legal-content a,
 body.datenschutz .legal-content a {
   color: var(--button-border-color);
-
   transition: color 0.2s ease;
 }
 
@@ -1187,14 +857,7 @@ body.datenschutz .legal-content a:hover {
   text-decoration: underline;
 }
 
-/* =========================================================
-   FOCUS / TASTATURBEDIENUNG
-   ========================================================= */
-
-/*
-   Sichtbarer Fokus für Menschen,
-   die mit der Tastatur navigieren.
-*/
+/* ===== TASTATURBEDIENUNG ===== */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -1203,49 +866,30 @@ textarea:focus-visible {
   outline-offset: 4px;
 }
 
-/* =========================================================
-   RESPONSIVE DESIGN
-   ========================================================= */
+/* ===== RESPONSIVE DESIGN ===== */
 
-/* =========================================================
-   TABLET - PROJEKTE
-   ========================================================= */
-
+/* Bis 1024px: Projektkarten */
 @media (max-width: 1024px) {
-  /*
-     Drei Projektkarten werden zu zwei Spalten.
-  */
   body.projekte .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* =========================================================
-   TABLET - ÜBER MICH + KONTAKT
-   ========================================================= */
-
+/* Bis 900px: Über mich und Kontakt */
 @media (max-width: 900px) {
-  /* -------------------------------------------------------
-     Über mich
-     ------------------------------------------------------- */
-
   body.ueber-mich main {
     flex-direction: column;
-
     gap: 50px;
-
     padding: 40px 24px;
   }
 
   body.ueber-mich .about-text {
     flex: none;
-
     max-width: 700px;
   }
 
   body.ueber-mich main figure {
     flex: none;
-
     width: 100%;
   }
 
@@ -1253,17 +897,10 @@ textarea:focus-visible {
     max-width: 280px;
   }
 
-  /* -------------------------------------------------------
-     Kontakt
-     ------------------------------------------------------- */
-
   body.kontakt .contact-grid {
     grid-template-columns: 1fr;
-
     gap: 50px;
-
     max-width: 650px;
-
     padding: 40px 24px;
   }
 
@@ -1279,68 +916,22 @@ textarea:focus-visible {
     justify-content: center;
   }
 
-  /*
-     Vorname und Nachname nun untereinander.
-  */
   .form-row {
     grid-template-columns: 1fr;
   }
 }
 
-/* =========================================================
-   KONTAKTFORMULAR - STATUSMELDUNG
-   ========================================================= */
-
-.form-status {
-  min-height: 24px;
-
-  margin-top: 18px;
-
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-/* Nachricht erfolgreich gesendet */
-.form-status.success {
-  color: #4fd1c5;
-}
-
-/* Fehler beim Senden */
-.form-status.error {
-  color: #ff8a8a;
-}
-
-/* Button während des Sendens */
-.contact-form .button-main:disabled {
-  opacity: 0.6;
-
-  cursor: not-allowed;
-
-  transform: none;
-}
-
-/* =========================================================
-   SMARTPHONE - HEADER + STARTSEITE + RECHTLICHE SEITEN
-   ========================================================= */
-
+/* Bis 768px: Header, Startseite und Rechtliches */
 @media (max-width: 768px) {
-  /* -------------------------------------------------------
-     Header
-     ------------------------------------------------------- */
-
   header {
     flex-direction: column;
-
     align-items: center;
-
     gap: 16px;
-
     padding: 20px;
   }
 
   .site-name {
     margin-left: 0;
-
     text-align: center;
   }
 
@@ -1355,80 +946,52 @@ textarea:focus-visible {
   header nav ul {
     justify-content: center;
     flex-wrap: wrap;
-
     gap: 10px 18px;
   }
 
-  /* -------------------------------------------------------
-     Startseite
-     ------------------------------------------------------- */
-
   body.home main {
     flex-direction: column;
-
     justify-content: center;
-
     gap: 50px;
-
     padding: 40px 24px;
   }
 
   body.home .text-section {
     flex: none;
-
     width: 100%;
     max-width: 700px;
-
     align-items: center;
-
     padding: 0;
   }
 
-  /*
-     Auf kleinen Displays darf die Überschrift umbrechen,
-     damit sie nicht seitlich aus dem Bildschirm läuft.
-  */
   body.home .title {
     white-space: normal;
-
     font-size: clamp(2rem, 8vw, 2.5rem);
-
     text-align: center;
   }
 
   body.home .intro-text {
     font-size: 1.3rem;
-
     text-align: center;
   }
 
   body.home .running-text {
     font-size: 1.1rem;
-
     text-align: center;
   }
 
-  /* Projekt-Button */
   #projekte-button {
     align-self: center;
   }
 
-  /* Technologie-Badges */
   body.home .tech-stack {
     margin-top: 35px;
   }
 
-  /* -------------------------------------------------------
-     Startseitenbild
-     ------------------------------------------------------- */
-
   body.home main figure {
     flex: none;
-
     width: 100%;
-
     justify-content: center;
-
     padding-right: 0;
   }
 
@@ -1436,10 +999,6 @@ textarea:focus-visible {
     width: min(280px, 100%);
     min-width: 0;
   }
-
-  /* -------------------------------------------------------
-     Impressum + Datenschutz
-     ------------------------------------------------------- */
 
   body.impressum .legal-main,
   body.datenschutz .legal-main {
@@ -1451,21 +1010,13 @@ textarea:focus-visible {
     font-size: 2rem;
   }
 
-  /* -------------------------------------------------------
-     Footer
-     ------------------------------------------------------- */
-
   footer nav ul {
     flex-wrap: wrap;
-
     padding-inline: 16px;
   }
 }
 
-/* =========================================================
-   SMARTPHONE - PROJEKTE
-   ========================================================= */
-
+/* Bis 700px: Projektkarten */
 @media (max-width: 700px) {
   body.projekte main {
     padding: 40px 20px 60px;
@@ -1475,18 +1026,13 @@ textarea:focus-visible {
     margin-bottom: 35px;
   }
 
-  /*
-     Zwei Projektspalten werden zu einer Spalte.
-  */
   body.projekte .projects-grid {
     grid-template-columns: 1fr;
-
     gap: 20px;
   }
 
   .project-card {
     max-width: 500px;
-
     margin-inline: auto;
   }
 
@@ -1495,17 +1041,12 @@ textarea:focus-visible {
   }
 }
 
-/* =========================================================
-   KLEINE SMARTPHONES
-   ========================================================= */
-
+/* Bis 480px: Kleine Smartphones */
 @media (max-width: 480px) {
-  /* Name im Header etwas kleiner */
   .site-name a {
     font-size: 1.75rem;
   }
 
-  /* Navigation kompakter */
   header nav ul {
     gap: 8px 14px;
   }
@@ -1514,7 +1055,6 @@ textarea:focus-visible {
     font-size: 0.95rem;
   }
 
-  /* Startseite */
   body.home main {
     padding-inline: 18px;
   }
@@ -1531,7 +1071,6 @@ textarea:focus-visible {
     font-size: 1rem;
   }
 
-  /* Kontakt */
   body.kontakt main {
     padding-inline: 0;
   }
@@ -1540,31 +1079,20 @@ textarea:focus-visible {
     padding-inline: 20px;
   }
 
-  /* Rechtliche Seiten */
   body.impressum .legal-main,
   body.datenschutz .legal-main {
     padding-inline: 20px;
   }
 }
 
-/* =========================================================
-   BEWEGUNGEN REDUZIEREN
-   ========================================================= */
-
-/*
-   Berücksichtigt Nutzer,
-   die im Betriebssystem reduzierte Animationen
-   eingestellt haben.
-*/
+/* Reduzierte Animationen */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-
     transition-duration: 0.01ms !important;
-
     scroll-behavior: auto !important;
   }
 }
