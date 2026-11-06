@@ -525,6 +525,20 @@ body.projekte .projects-grid {
   border-bottom: 1px solid rgba(79, 209, 197, 0.15);
 }
 
+/* Vorschau der Android-App */
+.app-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  background-image: url("assets/images/screenshot_einkaufsapp.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: auto 260%;
+  background-color: #1c2a2a; /*#0f3754*/
+
+  border-bottom: 1px solid rgba(79, 209, 197, 0.15);
+}
+
 /* ---------------------------------------------------------
    Inhalt der Karte
    --------------------------------------------------------- */
