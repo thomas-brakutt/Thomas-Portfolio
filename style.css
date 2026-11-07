@@ -1,7 +1,14 @@
 /* Portfolio: gemeinsame Styles und Seitendesigns */
 
-/* ===== SCHRIFTARTEN ===== */
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=VT323&display=swap");
+/* ===== LOKALE SCHRIFTART ===== */
+
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
 
 /* ===== BASIS UND GLOBALE ELEMENTE ===== */
 * {
