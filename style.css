@@ -259,19 +259,23 @@ body.home .text-section p {
 }
 
 /* Profilbild */
+
 body.home main figure {
   flex: 0 1 40%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding-right: 150px;
+  padding-right: 0;
 }
 
 body.home main figure img {
   display: block;
-  width: 320px;
-  min-width: 320px;
+  width: 100%;
+  max-width: 380px;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: center 30%;
   border: 2px solid rgba(60, 84, 101, 0.68);
   border-radius: 48px;
   box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
@@ -540,7 +544,7 @@ body.ueber-mich main figure img {
   height: auto;
   object-fit: cover;
   border: 2px solid rgba(60, 84, 101, 0.68);
-  border-radius: 0;
+  border-radius: 48px;
   box-shadow: 0 10px 30px rgba(15, 55, 84, 0.25);
 }
 
